@@ -1,0 +1,54 @@
+====== Production usage: Database ======
+
+<WRAP center round alert 60%>
+This is a stub. Do not use it yet.
+</WRAP>
+
+
+<WRAP center round important 60%>
+Using the default sqlite database can cause issues when using more and more data. You can replace the database with a running database server on the server.
+</WRAP>
+
+
+===== In Short =====
+
+
+  - Open a terminal in the root directory
+  - Install the data base driver
+  - Set up your database server (e.g. MySQL/MariaDB or PostgreSQL)
+  - Migrate the data
+  - Adapt your settings.py according to your needs.
+
+===== Example with MySQL/  MariaDB: =====
+
+Download the MariaDB server from https://mariadb.org/download/
+
+  * If you use the portable zip, you can follow the manual https://mariadb.com/kb/en/installing-mariadb-windows-zip-packages/
+  * If you using the MSI installer, you can use https://mariadb.com/kb/en/installing-mariadb-msi-packages-on-windows/
+
+**settings.py:**
+
+Replace the DATABASES block with following snippets.
+
+<code>
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "apx",
+        "USER": "username",
+        "PASSWORD": "password",
+        "HOST": "localhost",
+        "PORT": "3306",
+    }
+}
+</code>
+
+Steps needed (cmd is launched inside the wizard root folder):
+
+The example installs requirements and moves the data to the database server.
+
+<code>
+python.exe -m pip install sqlite3mysql mysqlclient
+Scripts\sqlite3mysql.exe --sqlite-file .\db.sqlite3 -d apx -u username--mysql-password password -h localhost
+</code>
+

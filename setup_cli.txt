@@ -1,0 +1,13 @@
+====== Install CLI ======
+
+<WRAP center round important 60%>
+:!::!: __//**This guide is considered deprecated and is only kept for technical reasons.**//__:!::!:
+</WRAP>
+
+  * Clone or download the latest version from https://github.com/apx-simracing/cli.git
+  * Install dependencies using pip.
+  * Configure the [[servers.json|servers.json]] according to your needs
+
+<WRAP center round tip 60%>
+If you going to use the CLI inside of an wizard installation, you don't need setting anything in the [[servers.json|servers.json]], as this file be created automatically.
+</WRAP>

@@ -1,0 +1,19 @@
+====== unlock ======
+
+===== Purpose =====
+
+Uploads the ServerUnlock.bin to the rFactor 2 server.
+
+===== Arguments =====
+
+The filename.
+
+===== Examples =====
+
+<code>
+apx.py --server servername --cmd unlock --args "pathtoServerUnlock.bin"
+</code>
+
+===== Remarks =====
+
+Introduced in version 1.0.0

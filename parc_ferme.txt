@@ -1,0 +1,36 @@
+====== Parc fermé  ======
+
+APX can manage Parc fermé settings. These settings are located within the event.
+
+<WRAP center round info 60%>
+The game might require you to run a qualifying to apply these settings.
+</WRAP>
+
+
+<WRAP center round important 60%>
+Releases before 2022R81 have Parc Ferme Settings, but are not working due an bug.
+</WRAP>
+
+
+{{ ::apx_pf.png?600 |}}
+
+Using the Free Settings value, you can control the settings participants can change. If the default should be restored, use the value **-1**.
+
+^ Value      ^ Description       ^
+| 1|steering lock|
+| 2|brake pressure|
+| 4|starting fuel|
+| 8|fuel strategy|
+|16|tire compound|
+| 32|brake bias|
+| 64|front wing|
+| 128|engine settings|
+
+If you need Parc Ferme also in practice etc, consider using the //Fixed Setups// checkbox.
+
+If you need to provide additional files, you can use the Server Files section.
+
+===== Examples =====
+
+  * Brake Bias and Stating Fuel = 32 + 4 = 36
+  * Tire Compound + Brake Pressure = 15 +2 = 18

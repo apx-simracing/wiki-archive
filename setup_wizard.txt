@@ -1,0 +1,80 @@
+====== The wizard ======
+
+The wizard is a Django 3 based web application which offers an additional layer for less-cli-familiar users. It utilizes the CLI in the background, but adds an web interface on it.
+
+You can grab the prebuild release on https://github.com/apx-simracing/wizard/releases
+
+
+===== Configuration =====
+
+Set your configuration inside wizard/settings.py
+
+^ Value      ^ Description       ^
+| SECRET_KEY | Set it to a random text, will be used for encryption purposes|
+| DEBUG| Enable only if needed|
+| STATIC_URL, MEDIA_URL and MEDIA_ROOT| See https://docs.djangoproject.com/en/3.1/ref/settings/|
+| APX_ROOT | The root directory, wher the CLI is located, if you are using the packaged version, just name the absolute path of the cli folder inside the downloaded folder |
+| PACKS_ROOT | A directory where to store livery upload packs (tar.gz files), should be empty) |
+| USER_SIGNUP_ENABLED | Enable user signup on /signup |
+| USER_SIGNUP_RULE_TEXT | a text or HTML markup on rules to follow as a user on this instance |
+| INSTANCE_NAME | The name of the instance, will be displayed at signup for users |
+| ENTRY_SIGNUP_ENABLED | Enable or disable entry signup and livery submission |
+| DISCORD_WEBHOOK | Discord Web hook URL. Leave to None to disable |
+| DISCORD_WEBHOOK_NAME | Name of the web hook. Leave to None to disable |
+| DISCORD_RACE_CONTROL_WEBHOOK| Discord Web hook URL to make penalty decisions public. Leave to None to disable |
+| DISCORD_RACE_CONTROL_WEBHOOK_NAME| Name of the web hook. Leave to None to disable |
+| FAILURE_THRESHOLD | Amount of failed attempts until a server will be ignored |
+| PUBLIC_URL | Set the public URL of the wizard instance to request data to. Used for base hooks. Is a full URL ending with a "/". Defaults to None|
+| OPENWEATHERAPI_KEY| Key for OpenWeatherAPI. defaults to None|
+| WIZARD_PORT | The port the wizard should be running on |
+| LISTEN_IP | The IP the server should listen on |
+| MEDIA_PORT | The port the media webserver should use |
+| STATIC_PORT | The port the static webserver should use |
+| MAX_SERVERS | The maximum amount of servers a instance can handle. If set to None there is no limit|
+| MAX_STEAMCMD_BANDWITH | Enforce a summarized limit the steamcmd instances can use. If None there is no limit enfored (please note: If a server has a bandwidth limit set, it will be used anyways)|
+| MAX_UPSTREAM_BANDWIDTH| The maximum upstream bandwidth all servers are allowed to use (kbit/s). If None there is no limit|
+| MAX_DOWNSTREAM_BANDWIDTH| The maximum downstream bandwidth all servers are allowed to use (kbit/s). If None there is no limit|
+| WEBUI_PORT_RANGE|The range of ports allowed for WEB UI port allocation |
+| HTTP_PORT_RANGE|The range of ports allowed for HTTP server port allocation |
+| SIM_PORT_RANGE|The range of ports allowed for Simulation port allocation |
+| MSG_LOGO | An URL to an image to be used in the web hooks |
+| USE_GLOBAL_STEAMCMD | Allows the wizard to use a single steamcmd copy instead of one copy per server. :!: Attention :!: **This option cannot be used together with Remove unused workshop items to prevent servers deleting the content needed by another server. Take caution when runnin multiple installations/ updates at once.** See https://wiki.apx.chmr.eu/doku.php?id=global_steamcmd for details. |
+| EASY_MODE | If set to True, APX will hide all settings not required by new users |
+| ADD_PREFIX | Decides if [APX] will be added on all server names |
+| SPEEDTEST_ALLOWED | Decides if speedtests will be done once |
+| NON_WORKSHOP_PAYLOAD_TEXT | The text to display in the discord messages if the item is not from steam. Please not this message is for all these items, so consider linking a info page or something generic to it |
+
+For WINE settings, see [[linux|Linux Support]]
+
+<WRAP center round tip 100%>
+If you running in non-debug mode, you have to serve the static files (e. g. CSS of the admin panel)  with a secondary webserver. For this, MEDIA_URL and STATIC_URL need to be set to different values. Ohterwise, the admin interface will look broken
+
+If you are going to use the wizard in a local environment only, you can also set  DEBUG to true, which also includes an build-in webserver.
+
+In general, the wizard can be configured as every other Django app, so the general Django 3 tutorials apply here (e. g. for settings ports).
+</WRAP>
+
+<WRAP center round alert 60%>
+Per default, the wizard runs in DEBUG=True while being in pre-release state. I do not recommend it from being accessible from the internet. FFS, don't run it in DEBUG mode if you are accessible from the web. See https://wiki.apx.chmr.eu/doku.php?id=security_considerations for details.
+
+As the wizard uses sqlite3 per default, consider switching to an transactional database such as MySQL before allowing signups from the internet. Otherwise the users may run into "database locked" errors.
+</WRAP>
+
+===== Add keys =====
+
+You can place a keypair (ServerUnlock.bin) in the folder uploads/keys/. If present, new servers (created by APX) will recieve this keys on their first installation.
+
+===== Start (local environment) =====
+
+<code>
+# Switch into the directory
+# run wizard.bat (it will install dependencies)
+# You can now access the wizard on localhost:8000/admin
+</code>
+
+<WRAP center round info 60%>
+When using the wizard in the regular work mode, you only need to run the wizard.bat file
+</WRAP>
+
+
+

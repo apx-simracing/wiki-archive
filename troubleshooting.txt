@@ -1,0 +1,167 @@
+====== Troubleshooting ======
+
+====== Deployments not continuing ======
+
+===== Steam downloads are not done, apparently the component folders do not exist =====
+
+If the component folder cannot be found and a previous steam command returned **not** 0, this indicates that the steam download failed.
+
+<WRAP center round info 60%>
+steamcmd does not handle large (> 1GB) workshop items well. They tend to abort after some time.
+</WRAP>
+
+
+===== I am using the vehicles from the mod, but the mod does not build =====
+
+You see such an message as the last message in the logfile, no subsequent lines visible
+
+<code>
+Aug 03 12:03:56 reciever.py:366 INFO [32612]: We did not manage to extract any vehicle definitions. 
+Check the used version.
+</code>
+
+Use a different version!
+
+
+===== I added a key, but the deployment stops and has a message "requires unknown mod to be installed" or the logfile ends with "Please add a keyfile to use paid content." =====
+
+Under some circumstances, the key get's invalidated. This is an ongoing issue and is being montiored. Until a fix is available, follow following steps.
+
+To make sure the key get's updated, select "clear" from the server key field.
+
+{{::key.png?nolink&600|}}
+
+Save the server, without a pending action.
+
+Open the server again and refresh until the server key is present again. Click on the link to download the key file and follow the instructions on https://forum.studio-397.com/index.php?threads/how-to-hosting-with-steamcmd-and-paid-content.57209/.
+
+Upload the unlock file to the "Server unlock key" field. APX will collect the key. If the unlock is successfull, the field will be **cleared**.
+
+<WRAP center round important 60%>
+If this fails, repeat the steps, but on the step clearing the server key select the action "start".
+</WRAP>
+
+
+===== I allowed a certain amount of slots, but the server slot amount is ridiculously low (e. g. 3 slots) =====
+
+Check the bandwith settings of the event.
+
+===== An APX-created complains about a missing key =====
+
+  - Deselect any action and event and save
+  - Refresh the page to see if a key gets added at the bottom (it may take some moments)
+  - If not, delete the server and create a new one
+
+===== An APX-created server fails all deployments with missing "player.JSON" =====
+
+<WRAP center round info 60%>
+This issue often comes with a missing key.
+</WRAP>
+
+Background: The initial setup downloads the reciever from GitHub and the server froms steam. Both download can fail at some points. If downloads are working, the server will start for a brief moment to create all the folders and files within UserData/. After that the server is being killed. It can happen that the server does not start in time, causing the server to be installed without having a UserData folder. On deployment, when APX tries to utilize that file to add the wanted values, it will fail.
+
+
+This can have following issues:
+
+  * The steam download of the server failed
+  * The initial startup to create the server UserData folder failed
+
+You have following options:
+
+  * Delete the server and create a new one
+  * Verify if the folder server_children/<randomid>/reciever and  server_children/<randomid>/server are not existing and not empty
+     * If both folders are present: Start the server (it will obviously fail as no content is installed, but it might create the wanted UserData folder)
+     * If not: Delete the server and start the setup again 
+
+====== Known issues ======
+
+===== Install of server stuck at "downloading reciever release" =====
+
+If your installation is stuck at this step, this means the download failed. Check your network connection and if your installed version is still [[supported_versions|supported]].
+
+===== Install of server stuck at "doing reciever bootstrap" =====
+
+Something went wrong while creating the folders, downloading the server of steamcmd. Consider trying the steps from [[resolve_stuck_server_installations|this guide]].
+
+===== Grip is not used =====
+
+If the grip is not used and you see following message in the log file, check the definition of thet rack within the component. There might be a track layout required wich is not included within the component.
+
+<code>
+No properties could be extracted from the track. Make sure you are using a correct layout description for this component.
+</code>
+
+If not, you may be affected by this issue, which is an ongoing task https://github.com/apx-simracing/issues/issues/45
+
+
+===== I use the mod included vehicles, but no ones are listed =====
+
+Check for following message within your logfile of the server:
+
+<code>
+Aug 22 10:44:06 steam.py:121 INFO [439660]: Found 0 files as vehicle definition in C:\Users\chm\AppData\Local\Temp\tmpv88hde1l
+</code>
+
+  * Check if the Component name is correct. If not correct it and start the deployment again
+  * If all available mas files of this mod are encrypted, no vehicles will be able to be included by APX. In this case, add a dummy entry
+
+===== The installation of a steam workshop item takes long time and then the status changed to "xy returned non-zero exit status 1" =====
+
+Check your logfile for following messages:
+
+<code>
+Aug 28 18:14:47 steam.py:163 INFO [109616]: Found 0 files in C:\Users\chm\Documents\rfactor-server\steamcmd\steamapps\workshop\content\365960\1453463528
+Aug 28 18:14:53 reciever.py:366 INFO [109616]: [WinError 3] Das System kann den angegebenen Pfad nicht finden: 'C:\\Users\\chm\\Documents\\rfactor-server\\server\\Installed\\Vehicles\\Radical_SR3-RSX_2017'
+</code>
+
+This can have several issues:
+
+  * The workshop item is empty
+  * You do not own the item
+  * The download aborted
+
+
+===== I see all layouts within the server, but I only need one =====
+
+You will see such a message in your logfile:
+
+<code>
+Sep 24 19:49:13 deploy.py:859 INFO [160976]: We don't found the desired layout in the gdb layout list. Falling back to old method. Desired layout name is Blackwood GP, track list is ['Blackwood GP (classic) // shows up in rFactor2 as the subfolder.', 'Blackwood GP [reverse] (classic) // shows up in rFactor2 as the subfolder.', 'Blackwood GP // shows up in rFactor2 as the subfolder.']
+</code>
+
+Check that the desired layout matches the Key "EventName" from the GDB file.
+
+This _should_ be the name of the layout displayed in the game. This must match EXACTLY.
+
+This is a bug https://github.com/apx-simracing/issues/issues/48 as the server overwrites the ini file controlling the track filter
+
+
+===== My custom skins are based on the wrong car =====
+
+You might see following message in the log file:
+
+<code>
+We will choose the first VEH file as a template: xy
+</code>
+
+You need to specifiy a suitable class in the entry page. The field name is "base class". Otherwise the first VEH file from the mod will be used.
+
+If everything is working, you will see this message:
+
+<code>
+We will choose the VEH file as a template: XYZ.veh as it suits the BaseClass string  "example": example class
+</code>
+
+===== Environment with global python =====
+
+If you have a global Python installed and you see APX commands to fail, use following workaround:
+
+Add the full path to the "cli" to the file python39._pth:
+
+<code>
+python39.zip
+.
+reciever
+import site
+C:\path\to\the\cli\folder
+</code>

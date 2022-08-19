@@ -1,0 +1,19 @@
+====== Best practises ======
+
+  - Use a strong secret and and not the standard port on the reciever
+  - Prefix your mod pack with something, people can then just delete everything with *yourprefix* in case of issues
+  - Control your [[event configuration]] before deploying
+  - Avoid whitespaces in --args, encapsulate multi-part strings with "", e. g. "Günther Hubspecht" instead of Günther Hubspecht
+  - Make your server as closed as possible, in the best case close any port except the rFactor require ports and the reciever port
+  - Use SSD's, not HDD servers
+  - Use no virtual machines unless you control the hypervisor
+  - Disable replays
+  - Consider running the reciever with an unprivileged user with minimal permissions
+
+
+====== Security considerations ====== 
+
+  - You should consider running the reciever using an unprivileged user with suitable directory permissions
+  - Keep the reciever as often updated as possible
+  - Apply your server udpates frequently.
+  - Keep your firewall as closed as possible

@@ -1,0 +1,19 @@
+====== advance ======
+
+===== Purpose =====
+
+Advances to the next configured session.
+
+===== Arguments =====
+
+None
+
+===== Examples =====
+
+<code>
+apx.py --server servername --cmd advance
+</code>
+
+===== Remarks =====
+
+Introduced in version 1.0.0

@@ -1,0 +1,46 @@
+====== How to add skins ======
+
+<WRAP center round important 60%>
+Using stock skins and own skins at once is currently not supported. Please add your own "stock skins".
+</WRAP>
+
+====== Add entry ======
+
+If you enable signups on the event, files and entries can be created by the participants themself: https://wiki.apx.chmr.eu/doku.php?id=event_signup
+
+You can also add the entry by yourself:
+
+{{::entry.png?nolink&800|}}
+
+The field "base class" is only needed if a mod has multiple specifications, such as the GT4 and Cup ones in the A110 mod.
+
+
+====== Add files ======
+
+Now you have to upload the files for the entry (liveries most likely). You can add them in the entry files section. Select the newly created car (e. g. the #123 from the last step) and upload files.
+
+<WRAP center round info 60%>
+You have to repeat this step per file needed. For larger amounts of files, there is an import available: https://wiki.apx.chmr.eu/doku.php?id=import
+</WRAP>
+
+
+{{::file.png?nolink&800|}}
+
+
+====== Use the entry ======
+
+In the event, select your newly created entry in the entries section.
+
+{{::event.png?nolink&800|}}
+
+====== Update ======
+
+
+Go to your desired server, select the event and update the server. Everything else will be taken care by APX.
+
+{{::server_update.png?nolink&600|}}
+
+**Thats all.**
+
+
+

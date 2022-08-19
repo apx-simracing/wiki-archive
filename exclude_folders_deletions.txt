@@ -1,0 +1,23 @@
+====== Exclude folders from deletions ======
+
+
+<WRAP center round info 60%>
+Take caution when excluding Packages or steamapps from being removed. This basically disables core features of APX.
+</WRAP>
+
+On deployment, following folders will be removed
+
+  * Replays
+  * Log
+  * Packages
+  * appcache
+  * steamapps
+  * player/Settings
+
+To keep one of these folders, place an empty text file named "apx-keep.txt" in the folder.
+
+In the log, you will see following messages then:
+
+<code>
+Apr 01 20:23:21 deploy.py:515 INFO [17728]: Ignoring the folder C:\Users\chm\Documents\rfactor-server\server\UserData\Log as it's marked as to be kept.
+</code>

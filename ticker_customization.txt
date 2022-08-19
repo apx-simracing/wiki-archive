@@ -1,0 +1,55 @@
+====== Ticker/ Livetiming customization ======
+
+===== General concept =====
+
+  * The reciever hooks are submitting data into the wizard app
+  * The livetiming/ ticker is a plain webtechnology project. You can basically customize everything as long as you have basic knowledge about that
+  * A Vue.js instance within the timing loads the data out of the wizard
+  * On first request, the wizard will collect livery thumbnails from the server itself
+  * There is no direct request towards the server itself
+
+
+===== Thumbnails not loading ===== 
+
+As listed on the article [[security_considerations|Security considerations]], you should use a proxy to publicly serve contents. The wizard does not host these contents.
+
+To serve thumbnails, start a webserver to host the contents of the //uploads// folder. Update the [[setup_wizard|MEDIA_URL of settings.py]] accordingly.
+
+===== Classes coloring =====
+
+If you have for example a class "GT3" configured (taken from the VEH files), the ticker will use the class "class-gt3" (in general "class-" + class name in lowercase). Add an corresponding entry in the a new file, e. g. //yourleague.css// (it's located within the folder //wizard/webgui/static/webgui///. It should be located on the same level as the file //timing.css//. 
+
+<WRAP center round important 60%>
+Avoid whitespaces in your class names
+</WRAP>
+
+
+Example:
+
+<code>
+/* Consider using "!important" if needed. */
+.class-gt3 {
+  background-color: red !important;
+  color: white !important;
+}
+</code>
+
+Don't forget to include your  new CSS file:
+
+<code>
+  <!-- Add your custom includes after this line -->
+  <link rel="stylesheet" href="{% static 'webgui/yourleaguename.css' %}">
+</code>
+
+===== Classes rename =====
+
+In case you realized that your class names are off, the ticker offers you the chance to overwrite that. Within your event configuration, you can add a key-value map for this. The input will be validated on save. Must be a valid JavaScript object.
+
+<WRAP center round important 60%>
+Merging of multiple classes into one is not supported as the server will group the vehicles by the original class descriptions.
+</WRAP>
+
+
+Example:
+
+{{::timing_overwrite.png?nolink|}}

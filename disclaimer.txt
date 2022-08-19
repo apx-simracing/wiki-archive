@@ -1,0 +1,12 @@
+====== Disclaimer ======
+
+  * APX has [[limitations|limitations]]. 
+  * It requires from the admin basic technical knowledge to set up and use. 
+  * I won't create a all-included solution. 
+  * And yes, the configs may be long. 
+  * For event management, consider using something like [[https://justrace.net]] 
+  * APX goal is to allow reproducable builds, but also to connect with your way of managing your league. Its an automation tool, nothing else, nothing more.
+
+And as APX is a one-man-show, it will has errors all the time. Also based on the [[licenses]], I can not guarantee for an absence of errors, data-loss causing bugs and so on. 
+
+Be fair and [[contact|give feedback]].

@@ -1,0 +1,13 @@
+====== Network speed ======
+
+If you set [[setup_wizard|SPEEDTEST_ALLOWED]] in settings.py to True, APX will do a speedtest once on startup.
+
+This values will be used on new events when upstream and downstream are set to 0. In this case, the values from the speedtest will be automatically used. If upstream or downstream are not 0, the user values will be used.
+
+To renew the results, delete //networkspeed.txt// and start APX again.
+
+<WRAP center round important 60%>
+Please note that APX does not calculate anything with these results. If you run multiple servers on the same network, consider adjusting the settings to make concurrent servers working.
+</WRAP>
+
+

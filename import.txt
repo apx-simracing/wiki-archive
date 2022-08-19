@@ -1,0 +1,54 @@
+====== Import files into APX ======
+
+Large amounts of files can be imported using the script //import.bat//. The script reads files from an folder //import// in the wizard base directory. It may not exist at start, so you may create it first.
+
+===== Requirements =====
+
+  * Components (either cars or for tracks) must exist inside of APX
+  * **For tracks:** The track layout needed for import must be existing inside of APX
+
+===== Import files for entries =====
+
+<WRAP center round important 60%>
+When importing entry files, ALL files are being used which exist in the import folder. No filter is applied. Do multiple imports for each car component group
+</WRAP>
+
+<WRAP center round important 60%>
+This import is meant for livery files, nothing else.
+</WRAP>
+
+To import files for entries, follow following steps
+  - Name a valid key to identify the files: theshortname, the steam id or component name
+  - Can entries be alphanumeric (e. g. '13x')? Y/N: **n**
+  - Do you want to set team names Y/N: **n**
+  - Is this okay? Y/N: **y**
+
+==== Alphanumeric vs Numeric ====
+
+This question is important toa llow the import to group the files. Alphanumeric beans that the entry number can consist out of any character and numbers while numeric only allows numbers.
+
+
+==== Set team names ====
+
+If confirmed, you can add the names per car to the entries. The names will be used then. If you don't want to set team names at all, just deny the question or confirm each entry with enter. The default team name is the component.
+
+
+<WRAP center round info 60%>
+Entries on the same component and the same number cannot be saved multiple times.
+</WRAP>
+
+
+===== Import files for tracks=====
+
+<WRAP center round important 60%>
+When importing track files, ALL files are being used which exist in the import folder. No filter is applied
+</WRAP>
+
+To import files for entries, follow following steps
+  - Name a valid short name to identify the files: theshortname, the steam id or component name
+  - Name the layout: **my layout name**
+  - Is this okay? Y/N: **y**
+
+<WRAP center round info 60%>
+There is no check for duplicate files.
+</WRAP>

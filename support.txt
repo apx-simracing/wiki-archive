@@ -1,0 +1,15 @@
+====== Support the project ======
+
+Show your support for the project with adding an icon on your info website. In general, showing that you are using APX helps alot to get more bandwith, which is crucial for such a project.
+
+Please link the website directly and not the wiki: https://apx.chmr.eu.
+
+Thank you :).
+
+===== Large icon to embed on websites =====
+
+{{:apx.png?direct&200|}}
+
+===== Small badge to embed on websites =====
+
+{{::small.png?direct|}}

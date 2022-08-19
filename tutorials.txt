@@ -1,0 +1,191 @@
+====== Tutorials ======
+
+===== Create a server =====
+
+  - Log in into APX. 
+  - Click "servers" on the left side
+  - Choose "create server from scratch" at the top
+  - Wait until the status is "Ready for usage. Key was collected on try X"
+  - Optional: You can adapt the name at any time. The server content will only update if a suitable action is selected
+
+If this does not work see: [[troubleshooting|Troubleshooting]]
+
+
+===== General remarks ===== 
+
+Follow this workflow when creating an event:
+
+  - Optional: Add mods missing to APX
+  - Create the sessions
+  - Create the weekend
+  - Create the liveries (if needed)
+  - Create event
+  - Use the event in a server
+
+===== Optional: Add a new mod to APX ===== 
+
+If a track or car is not present in APX, you can add them.  To do this, you need to have your instance not running in the EASY_MODE. To disable that, close the wizard app, open the file "settings.py" in the folder "wizard" and set //EASY_MODE = True// to //EASY_MODE = False//. Then restart the wizard. You will now have a section components, we will use for that.
+
+  - Select "components"
+  - Select "add new component"
+  - Name the type. You can choose between Vehicle or track
+  - Add the Steam workshop ID
+  - You can leave base component empty
+  - Name the component name. This is the folder name inside Installed/<Type>
+  - Give the mod a short name (it will be used for livery creation to have <shortname>_<number> in the file names. Keep that value short)
+  - If the mod has an encrypted base mod and an update, check "is official"
+
+{{ ::tut9.png?400 |}}
+
+
+==== Tracks only: Add layouts ==== 
+
+  - Select "tracks"
+  - Select "add new track"
+  - Select the component (step 1)
+  - Name your layout (step 2). Repeat for all layouts included. The names can be taken out of the game or the GDB file (value can be EventName, TrackName or VenueName)
+
+{{ ::tut10.png?400 |}}
+
+==== Optional: The mod is based on another mod ==== 
+
+<WRAP center round info 60%>
+You cannot add liveries on top of a mod based on a mod.
+</WRAP>
+
+
+**Example:**
+
+You have an livery pack for a single GT3 car.
+
+To use that, add the livery pack in APX as it's own vehicle mod and name the GT3 mod as a base component (step 3).
+
+In the event, select the updating mod pack (the livery pack) to the event as a "car".
+
+
+==== Optional: The mod I want to add is not based on steam ==== 
+
+Follow this guide: https://wiki.apx.chmr.eu/doku.php?id=file_based_content
+
+===== Create liveries ===== 
+
+  - Select liveries on the left
+  - Select add new livery
+  - Select the car the livery will be using
+  - Select the team name (avoid "#" and ":" for technical reasons)
+  - Add a number (can also be alphanumeric, such as "31x"
+  - Choose a base class (only needed if a base mod has several classes included, such as "Cup" or "GT4" for the Alpine 110 mod, upper- or lowercasing does not matter)
+  - Press "save"
+  - You will be redirected to the car list. You can search for your car and select the plus to upload files to this livery. Repeat this until all files are uploaded. If you click on the livery name (here "APX Test#51"), you can expand the list to include the filenames uploaded.
+
+{{:tut2.png?400|}}
+
+{{:tut3.png?400|}}
+
+{{:tut4.png?400|}}
+
+Your livery will be now usable in the next step to create an event.
+
+<WRAP center round info 100%>
+If you need to import more files at once, you can use this: [[import|Import files into APX]]:
+</WRAP>
+
+
+===== Race weekend =====
+
+==== Sessions ====
+First, you create the sessions. 
+
+
+{{:tut6.png?400|}}
+
+The grip settings are either based on a provided grip file or you name a "grip needle". A grip needle is a regular expression describing mod-provided filenames to be used. You can find more in-depth information here: https://wiki.apx.chmr.eu/doku.php?id=wizard_session#grip_needle_examples
+
+
+==== The weekend====
+
+A race weekend is basically the setting of how your sessions will work together and how long they will be. 
+
+{{ :tut5.png?400 |}}
+
+<WRAP center round important 100%>
+You cannot use the same type of a session multiple times. Use ingame server commands to use different race lenghts within a race day.
+</WRAP>
+
+
+
+===== Create an event =====
+
+<WRAP center round info 100%>
+An event is an reusable configuration about a track and car combination with a certain set of settings. You can use an event on multiple servers. Changes on an event will only applied to a server if you update the servers.
+</WRAP>
+
+  - Log in into APX
+  - Click "events" on the left side
+  - Choose "Add new event"
+
+==== Possible settings of an event ====
+
+<WRAP center round info 100%>
+Some settings will be missing in this table as they are self explanatory.
+</WRAP>
+
+
+|Setting|Default|Description|
+|Name|empty, but required|The Name of the event. Will be used as the name on the server in the server list|
+|Mod name|empty, not required|The name of the mod inside rFactor 2|
+|Mod version|empty, not required|The version of the mod inside rFactor 2|
+|Event mod version|empty, not required|When liveries are build, they need an additional version to make a difference for the game. APX will add a text behind the base version to identify the update. Example: Base mod is 1.41, so the update mod will get 1.41{Event mod version}|
+|Liveries and Cars|empty|The fields cars and liveries exclude themselves. Cars is used if your mod will be using stock liveries, so APX only needs to know which car mod is used. If you are using custom liveries, you will select the added liveries instead|
+|Dowstream and upstream|0|You will have to set these values to suit your network settings. Cannot be 0|
+|Race weekend|empty|see section race weekend|
+
+==== Add real weather ====
+
+Sinc [[releases:80|release 80]] APX can inject real weather using the weather plugin by [[https://forum.studio-397.com/index.php?threads/weatherplugin.58614/|Stefan_L_01]]. 
+
+<WRAP center round info 100%>
+This will only work properly if the track GDB file has proper location data.
+
+Keep your API request limits in mind!
+</WRAP>
+
+
+  - Check real weather
+  - Check your weather provider
+  - Add your key
+  - Add a temp offset (optional) which will be added to the temperature (if it's too cold)
+
+
+{{ ::tut8.png?400 |}}
+
+
+
+===== Update the server =====
+
+  - Select the desired server
+  - select update as action (see differences on https://wiki.apx.chmr.eu/doku.php?id=force_builds)
+  - Save
+  - Grab a ☕
+
+{{ :tut7.png?400 |}}
+
+If this does not work see: [[troubleshooting|Troubleshooting]]
+
+===== Start the server =====
+
+  - Wait until the server acknowledges "deployment finished"
+  - Select the server from the server list
+  - select "start" as action
+  - Save
+
+===== Stop the server =====
+
+<WRAP center round info 60%>
+APX kills the server quite hard. To prevent information loss, the stopping process will invoke a "restart weekend" first to get the XML files written.
+</WRAP>
+
+
+  - Select the server from the server list
+  - select "stop" as action
+  - Save

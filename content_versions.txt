@@ -1,0 +1,9 @@
+====== Content versions for official content ======
+
+Official content follows following version scheme. It needs to be followed to ensure the correct usage of mod building process.
+
+
+|Situation|Version|
+|Using the mod vehicles (no own liveries)|latest version (will be the one with car updates most likely)|
+|Using your own liveries|latest even version|
+

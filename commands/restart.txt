@@ -1,0 +1,19 @@
+====== restart======
+
+===== Purpose =====
+
+Restarts the race.
+
+===== Arguments =====
+
+None
+
+===== Examples =====
+
+<code>
+apx.py --server servername --cmd restart
+</code>
+
+===== Remarks =====
+
+Introduced in version 1.0.0

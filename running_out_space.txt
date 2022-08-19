@@ -1,0 +1,49 @@
+====== Running out of space ======
+<WRAP center round important 60%>
+This is an experimental feature
+</WRAP>
+===== Requirements =====
+
+You need at least enough space for a empty server copy (approx. 1.5 GB). On each server update, make sure you have enough space free to install at least the modpack required for the server. Unfortunately, the server can not be used by links, so it needs to be used with a copy.
+
+**Examples**
+
+You have three mods (A=500MB, B=250MB, C=250MB,D=1GB). To use the feature, you will need to have at least 4 GB storage free, as the files will be moved out of the server and then to be replaced with links.
+
+Example 2: You install 5 servers with the content above.
+
+^ Component ^ Regular Install (5 servers) ^ APX Library install (5 servers) |
+| Steam  | < 2MB | < 2MB |
+| Server size | ~7.5GB | ~9GB (one server held in LIBRARY_PATH) |
+| Mods (from above) | 10 GB | 4GB (on install), 2GB (during runtime)|
+| Sum | ~17.5GB | 13GB  (on install), 11GB (during runtime) |
+
+{{ ::apx_library.png?600 |}}
+
+===== Further description =====
+
+
+Mods can be large. Starting with 2022R81, APX can support on this issue. For this, you need to create a folder somewhere on your system and set LIBRARY_PATH with the FULL path.
+
+<WRAP center round important 60%>
+Please replace backslashes with double backslashes!!
+</WRAP>
+
+<WRAP center round important 60%>
+This feature uses NTFS junctions. Not working on other Filesystems.
+</WRAP>
+
+
+If set, APX will install the mods first, but if possible, move the files into the LIBRARY_PATH folder, linking the content to the server. In the server, the Installed/Vehicles and Installed/Locations will be kept at around 100MB. Each server might sit at around 5 GB while the mod content is located in the library only.
+
+**Please note** APX wills still do an installation of the content. So you need as much space additionaly as all content for the server will require to install. This is because APX cannot identify the content files from the workshop.
+
+===== Server template =====
+
+When a server is updated and the library feature is enabled, APX will create an folder "server" in the LIBRARY_PATH folder. New installations will use this "clone" instead of downloading a fresh copy on steam. The folder will be copied and updated when the installation of the new server is running.
+
+===== Cleaning up the library folder =====
+
+Run //clean_library.bat// to check for orphan library entries (which are not used anymore).
+
+

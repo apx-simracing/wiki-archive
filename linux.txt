@@ -1,0 +1,33 @@
+====== Linux Support ======
+
+<WRAP center round important 60%>
+Even as I personally doubt the overall concept of running rFactor 2 on Linux, the APX project has some base support for it.
+
+This may work at some point or not.
+
+The first release using this addition is https://github.com/apx-simracing/wizard/releases/tag/R80p7
+</WRAP>
+
+
+If Linux is detected as a platform, the command will be transformed to be runned in wine, added paths will be replaced with the in prefix path to prevent path errors. Some commands recieve additional changes to suit the WINE call.
+
+<WRAP center round info 60%>
+Please note that you cannot mix Operating systems. The wizard web app must run on the same platform as the reciever intances as the target OS will be choosed by what the wizard uses.
+</WRAP>
+
+If the wizard identifies the runned OS as Linux, the new wizard instances will recieve additional settings in the wizard:
+
+^Setting^Description^Examples/Remarks^
+|wine_root_path|The in wineprefix path to the environment|Will be starting with //WINE_DRIVE//|
+|abstractionlayer|The implementation used for running the processes|If your wine setup requires adding additional settings, use a shellscript within the path to do so.|
+
+The reciever config file will be named **server_linux.json instead of server.json**.
+
+===== Settings in the wizard =====
+
+The wizard has following linux-related settings
+
+^Setting^Value^Remarks^
+|WINE_DRIVE|Single Char|The drive letter to start paths on|
+|WINE_IMPLEMENTATION|name of binary/shellscript|The executable in PATH to run wine commands on|
+

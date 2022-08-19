@@ -1,0 +1,8 @@
+====== Use of a global steamcmd ======
+
+A global steamcmd is in the wizard context a single steamcmd copy for all managed servers. This reduces the hard drive space needed for the whole setup, but has some disadvantages:
+
+  - If you do parallel installations, this might cause issues as I did not find a documentation on how steamcmd behaves when multiple installations are requested
+  - If you have APX-created servers and servers with a manual installation, this will cause issues, so you cannot mix global steamcmd usage and server steamcmd usage
+  - The server option //Remove unused workshop items// cannot be used if //USE_GLOBAL_STEAMCMD// is set to //True//
+

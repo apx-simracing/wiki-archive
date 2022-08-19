@@ -1,0 +1,43 @@
+====== File based content======
+
+If you decided to use non-workshop items, you have to upload them by hand on the server. This has mostly following reasons: File upload handling is quite hard to archieve, especially if files are quite large. So prevent issues with uploads/broken uploads etc., I decided to not include such a feature.
+
+To use a file based item, create the component as usual, but set the steam id to **an arbitary negative number**. Instead of steam, it will look into the folder //items// (on the same level as //server// or //reciever//).
+
+
+===== Location of the folder items =====
+
+  - If you are running a by hand configured reciever instance (which was not created with the web app itself), the folder items has to sit on the same level besides "server" and "reciever".
+  - If the server was created with the button "create server from scratch", the folder items sits inside of "uploads". This allows multiple instances to use the same files.
+
+
+===== Content of the folder items =====
+
+
+This folder contains subfolders, named as the component. These folders then contain the items rfcmp files to install.
+
+**Example:**
+
+Your //items// folder has a subfolder //AstonMartin_Vantage_GT3_2019//. This folder then contains two rfcmp files, containing the mod itself. The files will be ordered by the version on deployment, so 1.86 will be first, followed by 1.87.
+
+{{:fbi.png?nolink|}}
+
+Versioning of this files is not supported as the Wizard can not distinguish between several file at build time.
+
+
+===== Why can I not upload these files on the browser? =====
+
+Handling large files is difficult.
+
+===== Multiple rfcmp files: Caution! =====
+
+If the component folder contains multiple rfcmp files, make sure they follow the usual //blafoobla_v<version>.rfcmp// scheme. This is important to control the order of installation, otherwise it can happen that the update will be installed before the mod itself, which will fail. In doubt, give it version labels.
+
+if the mod uses weird versions, such as "2020" instead of something like "1.23", keep a distance from using the version label "latest" or "latest-even" and use an explicit versioning label, as it most likely won't change as you are in control of these files.
+
+<WRAP center round alert 60%>
+I will not support each naming scheme on this planet. If the mod creator thinks it's a bright idea to version not following a major.minor scheme, it's an wontfix for me.
+</WRAP>
+
+
+

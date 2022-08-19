@@ -1,0 +1,23 @@
+====== rejoin ======
+
+===== Purpose =====
+
+If a driver pressed ESC during an race session, he cannot rejoin the track. The command disqualifies and undisqualifies the driver, allowing the driver to rejoin. This command does not require the client do disconnect.
+
+===== Arguments =====
+
+Driver name.
+
+===== Examples =====
+
+<code>
+apx.py --server servername --cmd rejoin --args "Driver Fullname"
+</code>
+
+===== Remarks =====
+
+Introduced in version 1.0.0
+
+<WRAP center round info 60%>
+This command requires the server being configured with "Race Rejoin" not equals 0.
+</WRAP>

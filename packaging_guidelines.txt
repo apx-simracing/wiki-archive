@@ -1,0 +1,22 @@
+====== Packaging Guidelines ======
+
+APX follows a certain approach to provide packages. Other ways are not supported. It is just not time efficient to spent time with all possible ways to implement. Some points (e. g. team description formats) are crucial for the workflow to work properly.
+
+====== Desired way ======
+
+    - Base mods (e. g. offical mods) are provided either from steam or from file based mods (make sure your participants own them!)
+    - Components are following the usual naming scheme (no whitespaces, alphanumeric versioning)
+    - VEH files for participants are generated on the fly
+    - Livery files are stored inside the wizard and will be uploaded by the wizard onto the server to be included
+    - Same components cannot be used multiple times (if you e. g. need to GTE AM and PRO consider to use [[https://wiki.apx.chmr.eu/doku.php?id=wizard_additional_properties_entries|entry related VEH overwrites]])
+    - Team Names (field //Description// and //FullTeamName// are filled with //TeamName#VehicleNumber//), the //Description// block contains the team name without number.
+
+====== Thinks you cannot do ======
+
+  * Mixing of stock and own VEH entries is not supported (Workaround: Add generic entries if you need such an approach)
+  * Other format for entry Description/ FullTeamName
+
+
+====== Why do I need alphanumeric version numbers?? ======
+
+If e. g. a DLC mod consist out of a base mod and a update, it's important to get them in a order. For this, it's expected do sort them by their number. If this is not fullfilled, the order will be done by the default sorting of the filenames.

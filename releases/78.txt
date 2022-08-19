@@ -1,0 +1,68 @@
+===== Release 78, 11th september 2021 =====
+
+<WRAP center round info 60%>
+Release 78 focused on bugfixes and mod compabiltiy.
+</WRAP>
+
+<WRAP center round important 60%>
+If you are updating, don't forget to add the MSG_XY entries from the settings.py.tpl to your settings.py file.
+</WRAP>
+
+<WRAP center round alert 60%>
+This release requires to run following additional commands before getting executed:
+
+python.exe manage.py makemigrations
+
+python.exe manage.py migrate
+</WRAP>
+
+
+Download: https://github.com/apx-simracing/wizard/releases/tag/R78
+
+  * Extended the wiki about failing downloads https://wiki.apx.chmr.eu/doku.php?id=troubleshooting#steam_downloads_are_not_done_apparently_the_component_folders_do_not_exist
+ 
+  * Fixed missing dirname import on the steam module
+
+  * Fixed wrong log message when a plugin file is placed
+
+  * Fixed an issue causing only the last plugin in the list to be persisted
+
+  * Fixed an issue causing comments to be included in the property extraction
+
+  * Add WINDOW.dds suffix to import and skin 
+
+  * Add a fallback if TrackName is not available in the GDB file
+
+  * Add alphabetic sorting for component lists
+
+  * Add an option to skip all session unless the ones configured within APX to the event configuration (for example to run P+R only, without warmup and qualy)
+
+  * Add more state values to describe the current step of the deployment better
+
+  * Optimized Regex to find SettingsFolder value
+
+  * Clear the state field after successfull deployment
+
+  * Add settings to the wizard:
+
+  - MSG_RESTART_WEEKEND_OK
+  - MSG_RESTART_WEEKEND_FAIL
+  - MSG_START_OK
+  - MSG_START_FAIL 
+  - MSG_STOP_OK
+  - MSG_STOP_FAIL
+  - MSG_DEPLOY_START
+  - MSG_DEPLOY_FAIL
+  - MSG_DEPLOY_FINISH
+
+  * Add chapter about custom webhook messages  in the wizard settings https://wiki.apx.chmr.eu/doku.php?id=setup_wizard#webhooks
+
+  * Add extended validation for some mods to inform about some issues which may occur with them.
+
+  * Add size warnings for Portland and Nordschleife DLC
+
+  * Add warning about Blackwood mod causing issues with it's GDB files
+
+  * Add option to ignore warnings for components
+
+  * Add warning about size of the Enduracers Mod

@@ -1,0 +1,228 @@
+====== Event configuration ======
+
+<WRAP center round alert 100%>
+As the majority of users will use the wizard, this page is now deprecated.
+</WRAP>
+
+
+The event configuration is an arbitary named JSON file containing five sections:
+
+  * server: Server settings, Player.JSON and Multiplayer.JSON overwrites
+  * session: Session settings
+  * cars: Car configuration
+  * track: Track configuration
+  * mod: Mod name 
+
+I prepared an sample configuration: https://wiki.apx.chmr.eu/doku.php?id=example_event_civic_2013_botniaring
+
+You want to use custom liveries? See tutorial article here: https://wiki.apx.chmr.eu/doku.php?id=example_event_bmw_m8_gte_custom_liveries_autopolis
+
+===== Values =====
+==== Section server ====
+^ Value      ^ Description       ^
+| password  | Deprecated     |
+| adminPassword | Deprecated     |
+| upstream | Deprecated     |
+| downstream| Deprecated     |
+| overwrites| Contains the dictionary of Player.json and Multiplayer.json to overwrite. If no value is set, the default files will b e  used|
+
+<WRAP center round alert 100%>
+
+
+If you are running multiple servers on a single host, consider ALWAYS to overwite the value "WebUI port" to a defined value, otherwise APX will pick up the status of the first server with the default port.
+</WRAP>
+
+==== Section session ====
+
+<WRAP center round info 60%>
+This section will be deprecated on release as you can set these values using the //overwrites// property.
+</WRAP>
+
+
+==== Section cars ====
+
+The cars section is a key value of the vehicles to choose from.
+
+If workshopId is a number greater than 0, it will be downloaded from steam. If not, APX will look into the folder <yourrootfolder>\items\<componentName> for suitable items. 
+
+<WRAP center round info 60%>
+Please note that the file based items must follow a base versioned naming scheme, in best case //<component>_<major>.<minor>.rfcmp//. If the mod does not follow the scheme, avoid using the "latest" or "latest-even" version tags and use en explicit version label. See https://wiki.apx.chmr.eu/doku.php?id=file_based_content for more details
+</WRAP>
+ 
+The property entries_overwrites allows you to adjust values based on car entries. The settings are configured as key value pairs. See https://wiki.apx.chmr.eu/doku.php?id=wizard_additional_properties_entries for details. Note that the syntax in the wizard is line based and dictionary based in the file itself. The default value here is a empty dictionary.
+
+<code>
+
+"cars": {
+  "workshopId": {
+    "entries": [
+      "fullentryDescription"
+    ],
+    "entries_overwrites": {
+        "entry number": {
+          "Driver": "My name",
+          "Category": "My test race, A class name"
+        }
+    },
+    "component": {
+       "version": "versionNumber",
+       "name": "componentName",
+       "update": "false",
+       "short": "agivenshortname"
+       "numberplates": [
+          {
+            "x": 0,
+            "y": 0,
+            "file": "C:\\apx\\img\\stamps_aston.png",
+            "width": 4096,
+            "height": 4096,
+            "rotate": 0,
+            "region": "C:\\apx\\img\\stamps_aston_region.png"
+          }
+       ]
+    }
+  }
+}
+</code>
+
+<WRAP center round tip 60%>
+You can idenitfy your version number and component name from the Installed/Vehicles folder of your rFactor 2 installation. To choose what version to choose from, consider checking the [[https://docs.studio-397.com/users-guide/custom-liveries-how-to-make-an-update-rfcmp-for-league-use|official manual]], Part 3: Packing the 'update rfcmp', Step 2.
+</WRAP>
+<WRAP center round tip 60%>
+Add entries in any case, if you are using the stock rfcmp files, add the default entries aswell, otherwise, the vehicle selection will feature no list entries. APX only supports integer entry numbers. Constructs like "10b" are not allowed. Follow the scheme Team Name #number:pitgroup
+</WRAP>
+
+
+
+=== component properties ===
+
+
+  * The property //short// is used while building the skins using [[commands:build_skins]]. The short name is basically a prefix for the livery files. Inside of your build_path of the [[servers.json]], APX will look for <shortname>_<entrynumber>.[dds,json...]
+  * Vehicle entries with //update// equals //false// will not be included during skin building
+  * If //numberplates// is an empty array ([]), nothing will be added
+  * If a numberplate entry has a property //text//, with content //number//, the entry number will be printed on the skin
+  * The //version// is either an version or "latest"/ "latest-even". Latest picks the overall latest version, latest-even the version with the even Minor version. Patch versions, suffixes are ignored. If the mod does not follow a semantic versioning scheme (Major.Minor.Patch), this may not work.
+
+==== Section track ====
+
+This section is similar to the vehicle section.
+==== Section plugins====
+
+Contains a key-value pair of the plugin dll filenames to be injected. The value is the settings of the plugin. The files can be either pushed by hand, with the command [[commands:plugins|plugins]] or using the wizard. The sections default value is {}
+
+Example:
+
+<Code>
+  "plugins": {
+    "rf2WeatherPlugin.dll": {
+      " Enabled": 1,
+      "LOG": 0,
+      "UID": 0
+    }
+  },
+</Code>
+
+==== Section mod ====
+
+
+
+^ Value      ^ Description       ^
+| name| Name |
+| version| Version of the mod |
+| rfm | Deprecated, as the [[commands:deploy]] command requires an rfm parameter. |
+
+
+==== Section conditions====
+
+This section controls grip configuration. Please note that the progression factor is controlled within the player.JSON file. If you don't want to use that at all, set the //conditions// block to //null//.
+
+<WRAP center round important 100%>
+Weather is currently not supported.
+</WRAP>
+
+
+**Important: ** Usage of the weather settings will require that the server is in weather mode "scripted", otherwise it will default to a sunny day.
+
+You can change this by using following overwrites for the Player.JSON:
+
+<code>
+"Race Conditions": {
+          "MULTI Weather": 5,
+          "GPRIX Weather": 5
+}
+</code>
+
+"5" is hereby the value for "scripted".
+The real road session name may be one of following:
+  * TD
+  * P1
+  * P2
+  * P3
+  * P4
+  * Q1
+  * Q2
+  * Q3
+  * Q4
+  * WU
+  * R1
+  * R2
+  * R3
+  * R4
+
+
+An example (will aply AutoSave.rrbin for the first practice session).
+
+<code>
+  "conditions": {
+      "P1": "configs/weather/AutoSave.rrbin"
+  }
+</code>
+
+==== Section branch ====
+
+The branch is the branch on steam, either //public// or //release-candidate//.
+
+
+==== Section update_on_build ====
+
+Decides if APX will call an update on the dedicated server itself on each build. Has a boolean value, true or false.
+
+==== Section comp ====
+Mandatory info about the compatible release to be used. Reciever and CLI/ Wizard side must match.
+
+
+==== Section start_type====
+^ Value      ^ Description       ^
+| 0| Standing start|
+| 1| Formation Lap and standing start |
+| 2| Lap behind safety car & rolling start |
+| 4| Fast rolling start |
+
+==== Section callback_target====
+
+Contains the full URL of the addmessage endpoint. This endpoint recieves an server public secret (of the wizard server entry) to allow hooks to submit events to the wizard. Defaults to null.
+Example:
+ 
+<code>
+ "callback_target": "http://localhost:8000/addmessage/cffhddcfgahchafbhifg"
+</code>
+
+==== Section welcome_message ====
+
+A line separated message to write to any client when connecting for the first time (new slot id). Can contain the placeholder {river_name}. Defaults to null if not needed. 
+
+Example:
+
+<code>
+"welcome_message": "\whisper {driver_name} Hello {driver_name}\r\n\whisper {driver_name} Welcome to the server!",
+</code>
+
+==== Section suffix ====
+
+Defaults to null, can be used to replace the version suffix ".9apx" with something else.
+
+===== Example =====
+
+[[example_event_civic_2013_botniaring|Example Event: Honda Civic BTCC 2013 @ Botniaring]]
+
+[[example_event_bmw_m8_gte_custom_liveries_autopolis|Example Event: BMW M8 with custom liveries @ Autopolis]]

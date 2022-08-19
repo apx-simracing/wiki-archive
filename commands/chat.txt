@@ -1,0 +1,23 @@
+====== chat ======
+
+===== Purpose =====
+
+Send a chat message to the server. Can also be used to invoke commands to the server.
+
+===== Arguments =====
+
+The text.
+
+===== Examples =====
+
+<code>
+apx.py --server servername --cmd chat --args "hello world"
+</code>
+
+===== Remarks =====
+
+Introduced in version 1.0.0
+
+<WRAP center round info 60%>
+Text length is limited by the rFactor 2 server. Keep the messages lower than 50 chars.
+</WRAP>

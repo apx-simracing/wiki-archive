@@ -1,0 +1,34 @@
+====== Security considerations ======
+
+The wizard and reciever component of APX are basically web servers. With that, most of the security considerations of classical web apps will apply.
+
+  * Run the reciever and the wizard with an unprivileged user (and also apply proper folder permissions)
+  * Use different ports than the default configurations
+  * Use a proxy (Apache, nginx, Traefik etc.) to get an additional, controllable layer and maybe HTTPS on top of the reciever and wizard component
+  * Don't use debug modes unless needed
+  * Take a look into the logfile regularly or insert the log into a log parser
+  * Please, install updates :-D
+
+===== Why separate user? =====
+
+Running an server software always brings an risk. To keep risk as low as possible, it makes sense to run the commands using an dedicated user for that purpose.
+
+===== Reciever fails as I am logged in with an administrative user =====
+
+<WRAP center round alert 60%>
+Use this with extreme caution. See [[security_considerations|Security considerations]]
+</WRAP>
+
+If you are going to run the reciever as admin, open the file with your text editor and append "--admin" (without quotes) 
+
+
+{{::admin_reciever.png?nolink|}}
+
+
+Also, limiting folder permissions helps to evade data loss due to bugs.
+
+===== Network =====
+
+  * Consider making the reciever port only accessible for a certain subnet or, in best case, use a VPN for this.
+  * The Reciever will spawn either Flask itself if debug is enabled or a waitress instance if not. This also disables the debug tracelog messages.
+  * Consider adding a reverse proxy in front of the reciever to add a certificate.

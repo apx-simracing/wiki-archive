@@ -1,0 +1,35 @@
+====== Firewall rule generation ======
+
+If a server is saved, two files will be written into the folder //firewall_rules//:
+
+  * //firewall{server public secret}.ps1//
+  * //invoke_firewall{server public secret}.bat//
+
+These scripts can be used to open the required ports.
+
+<WRAP center round important 60%>
+Make sure the server is not running when you do this rules. The script will first remove all (possibly old) rules for this server, which will cause connections to be dropped.
+</WRAP>
+
+**Run the batch-script from an administrative shell.** Double clicking is not enough as a raised shell is required. If you are unsure what it does, you can always open the file with a text editor. You can get this by following steps:
+
+  - Search for "cmd" in your start menu
+  - Right click on the search result and choose "run as administrator"
+  - A black terminal window will open
+  - enter "cd the-path-to-your-wizard-instance-firewall-folder", so e. g. "cd C:\Users\chm\Documents\rfactor-server\wizard\firewall_rules" (without quotes)
+  - run the script belonging to your server, so e. g. "invoke_firewallhgfeeafbbhbgbgihddab.bat" (without quotes), confirm with enter
+====== How to check the rules ======
+
+Open your start menu and sarch for "Windows Firewall", you will get a result called "Windows Firewall with extended security", open that program.
+
+On the right of the window, select "inbound rules".
+
+{{::firewall.png?nolink&1000|}}
+
+You will find APX generated rules starting with "APX RULE {server public-secret}". The column local port represents the port required by the server itself.
+
+<WRAP center round info 60%>
+If you change the ports of a server, you will have to rerun this. If a server get's deleted, you can use the shown Windows tool to delete rules (simply select them and select delete on the context menu). There is **NO** auto deletion of rules due to the permissions needed to do that.
+</WRAP>
+
+

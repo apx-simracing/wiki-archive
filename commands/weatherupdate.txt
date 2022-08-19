@@ -1,0 +1,17 @@
+====== weatherupdate ======
+
+===== Purpose =====
+Update the wet file to include new data. Can only be used **BEFORE** the server is running.
+
+
+===== Arguments =====
+  * JSON event configuration
+
+===== Examples =====
+<code>
+apx.py --server servername --cmd weatherupdate --args configs/foo.json
+</code>
+===== Remarks =====
+
+Introduced in version 1.0.0.
+

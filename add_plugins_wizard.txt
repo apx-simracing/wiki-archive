@@ -1,0 +1,13 @@
+====== Add plugins in the wizard app ======
+
+
+To add a plugin, add the plugin dll in the Server plugin section.
+
+{{::plugin.png?direct&600|}}
+
+Enter always the settings. If no settings. use "{}" as the default value.
+
+The " Enabled: 1" will be ignored as it will be set automatically if plugins are required.
+
+In the event configuration, you can now add the plugin.It will be uploaded on server deployment.
+

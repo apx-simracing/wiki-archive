@@ -1,0 +1,36 @@
+====== servers.json ======
+
+The servers.json is a local file containing the configuration of the reciever aswell of the build process. URL and secret are hereby used to connect to the APX reiciever, while the env settings are relevant for using [[commands:build_skins]], [[commands:build_track]] and [[commands:deploy]]. The paths are on the local machine, not the server.
+
+====servers.json ====
+^ Value      ^ Description       ^
+| servername | A given, whitespace-free name of your server |
+| url| The internet reachable IP/ FQDN of your server|
+| port | Deprecated  the apx reiver port (see [[https://wiki.apx.chmr.eu/doku.php?id=setup#setup_reciever|setup]] for details)   |
+| secret| A passwort to authentificate the cli on the reciever|
+| env| A set of local paths required to build skins (see below and for command [[commands:build_skins]])|
+
+
+<code>
+{
+  "servername": {
+    "url": "http://localhost:5000/",
+    "public_ip": "0.0.0.0",
+    "secret": "foobar",
+    "env": {
+      "build_path": "C:\\Users\\apx\\build\\raw",
+      "packs_path": "C:\\Users\\apx\\build\\packs"
+      "templates_path": "C:\\Users\\apx\\build\\templates",
+      "tracks_path": "C:\\Users\\apx\\build\\tracks",
+    }
+  }
+}
+</code>
+
+===== Description =====
+
+
+  * build_path is a folder containing the liveries. Child folders are named by components
+  * packs_path is a folder where temporary packs are placed. Packs are *.tar.gz files containing files to be uploaded to the server
+  * templates_path is a folder containing files needed to be used by the wizard (e. g. for VEH templating, numberpaltes and so on)
+  * tracks path is similar to build_path, but only for files to be included in track updates. Child folders are also components names.

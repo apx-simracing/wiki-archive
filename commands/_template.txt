@@ -1,0 +1,11 @@
+====== @FILE@ ======
+
+===== Purpose =====
+
+===== Arguments =====
+
+===== Examples =====
+
+===== Remarks =====
+
+Introduced in version XYZ

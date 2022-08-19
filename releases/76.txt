@@ -1,0 +1,40 @@
+===== Release 76, 3rd september 2021 =====
+
+<WRAP center round info 60%>
+Release 76 focused on the grip injection to make it more usable for people without knowledge of rFactor 2's internal structure. Also, some additions where added to make APX more easy to integrate within existing server infrastructures.
+</WRAP>
+
+
+Download: https://github.com/apx-simracing/wizard/releases/tag/R76
+
+  * Added option RECIEVER_PORT_RANGE to control the Ports used by the reciever
+
+  * Update https://wiki.apx.chmr.eu/doku.php?id=common_components to feature Zandvoort 2021, Zandvoort 2021 National
+
+  * Changed display of events to make the table smaller
+
+  *  Add option to persist CBash and Shaders folder of the server. APX will not delete folder contents on default
+
+  *  Add real road modifier for Practice, Race and Qualy to the session options
+
+  *  Add additional log statements to improve error troubleshooting
+
+  *  Fixed an issue causing the grip injection to fail if the server deployed another track in the past (was caused by same mas filenames within build/). APX will now remove these temporary folders before continuing.
+
+  * Add option tot he server to keep the settings folder
+
+  * Add support to use an AutoSave.rrbin file as the start point for grip
+
+  * Updated https://wiki.apx.chmr.eu/doku.php?id=wizard_session#race_sessions
+
+  * Add grip multiplier to list display
+
+  * Extend help text for grip needle
+
+  * Added examples for grip file needles in https://wiki.apx.chmr.eu/doku.php?id=wizard_session
+
+  * Add support to turn a preset file from the mod into the autosave
+
+  * Removed an error from the status module which will otherwise pollute the reciever.log
+
+  * Add a log message if the autosave is demanded, but already existing

@@ -1,0 +1,145 @@
+====== Example Event: Honda Civic BTCC 2013 @ Botniaring ======
+
+
+APX will require the item steam ID's. If you have the item URL, it's the number after "id=" (so e. g. https://steamcommunity.com/sharedfiles/filedetails/?id=**1553094081**&searchtext=botniar)
+
+  * Honda Civic BTCC 2013: 922034382
+  * Botniaring: 1553094081
+
+<WRAP center round info 80%>
+You have to do this configuration once. If updates are released, just run the last command again.
+</WRAP>
+
+===== Identifying content =====
+
+
+Subscribe these items on your local computer and start up rFactor 2 as we need some informations:
+
+  * Vehicle cars
+  * Component versions
+  * Component names
+  * Layout of the choosed track
+
+==== Getting component names and versions ====
+
+In the launcher package list, identify your content. We will need the name (which is often something like <Name>_<Year>) and a version (or you can just use "latest" as a version). Do this for all the used content:
+
+{{:botniaring.png?1000|}}
+
+and the car:
+
+{{:civic.png?1000|}}
+
+You can find these informations als from the folder structure when looking into ///Installed/Vehicles// and ///Installed/Locations//
+
+==== Getting content infos ====
+
+Next, startup rFactor 2. We will have now to identify the contents of your selected mods.
+
+  - For a track, note the desired layout name, here e. g. "Botniaring Short".
+  - For a car: Note down at least one available vehicle, e. g. "Honda Civic NGTC #1" (Remember: non-numeric values in car numbers are not allowed -even although they may be existing)
+
+{{::botniaring_layoutsd.png?400|}}
+{{:civic_entries.png?400|}}
+
+===== Creating the event JSON file=====
+
+As we now collected all required informations, we can create the event json file. You can drop this file everywhere on your computer, you just need to remember it's path.
+
+==== Recommendation: ====
+
+  * Make sure you version and name the mod properly. If a mod was updated, but neither version or name changed, it causes an mod install error/ clients are stuck in the loading screen
+  * Set the "WebUI port" to an open port **per server**. It will be used for per-user status checking
+  * Even for workshop mods, always name vehicle entries (at least one!)
+
+
+
+<code>
+{
+  "server": {
+    "overwrites": {
+      "Multiplayer.JSON": {
+        "Multiplayer Server Options": {
+          "Pause While Zero Players": false,
+          "Join Password": "",
+          "Admin Password": "myPassword",
+          "Default Game Name": "APX BTCC",
+          "Enforce Real Name": true,
+          "Practice 1 Time": 180,
+          "Qualifying Time": 30,
+          "Max MP Players": 25,
+          "Maximum AI": 25,
+          "Race Rejoin": 3
+        },
+        "Multiplayer General Options": {
+          "Download Custom Skins": false,
+          "Net Connection Type": 6,
+          "Downstream Rated KBPS": 25000,
+          "Upstream Rated KBPS": 25000
+        }
+      },
+      "Player.JSON": {
+        "Game Options": {
+          "MULTI Race Finish Criteria": 2,
+          "MULTI Race Time": 60,
+          "MULTI Damage Multiplier": 50,
+          "Record Replays": 0
+        },
+        "Miscellaneous": {
+          "WebUI port": 5398
+        }
+      }
+    }
+  },
+  "session": {},
+  "options": {},
+  "cars": {
+    "922034382": {
+      "entries": [
+        "Honda Civic NGTC #1:1"
+      ],
+      "component": {
+        "version": "latest",
+        "name": "HondaCivicBTCC_2013",
+        "update": false,
+        "short": "honda",
+        "numberplates": []
+      }
+    }
+  },
+  "track": {
+    "1553094081": {
+      "layout": "Botniaring Short",
+      "component": {
+        "version": "latest",
+        "name": "Botniaring_2017",
+        "update": false
+      }
+    }
+  },
+  "start_type": 0,
+  "comp": "pre-beta",
+  "branch": "public",
+  "plugins": {},
+  "mod": {
+    "name": "apx_btcc",
+    "version": "1.0"
+  },
+  "update_on_build": true,
+  "callback_target": "http://localhost:8000/addmessage/cffhddcfgahchafbhifg",
+  "welcome_message": null,
+  "suffix": null,
+  "collect_results_replays": false
+}
+</code>
+
+===== Startup! =====
+
+<code>
+python apx.py --server <yourserver> --cmd deploy --args <path_to_the_btcc-botniaring_config> configs/rfm/default.rfm
+</code>
+
+<servername> is hereby one of the configurated server names from your [[servers.json|servers.json]].  The server will always be updated to the most recent version. 
+
+Happy racing :) .
+

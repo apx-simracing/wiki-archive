@@ -1,0 +1,6 @@
+====== Wizard: Usage hints ======
+
+===== An entry with files switches the vehicle, now the files are missing =====
+
+In this case, the file needs to be reupladed as the component may now reference a path not existing
+

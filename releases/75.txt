@@ -1,0 +1,50 @@
+===== Release 75, 31st August 2021 =====
+
+<WRAP center round info 60%>
+Release 75 focused on usability and additing session settings
+</WRAP>
+
+
+Download: https://github.com/apx-simracing/wizard/releases/tag/R75
+
+  * Added support to add the same vehicle component multiple times (e. g. needed if all cars from the BTCC bundle or the V8 Supercars) 
+
+  * Add allowed cuts to event configuration
+
+  * Added qualyfing session (for private qualy) to the event configuration
+  
+  * Added blue flag behaviour options
+
+  * Add option to pause the event while zero players
+
+  * Add option to control pit speed override
+
+  * Add option to control if a car must be stopped before returning to the monitor
+
+  * Add option to control qualy join mode
+
+  * Add option to control after race delay
+
+  * Add option to control delay between sessions
+
+  * Add option to control collision fade threshold
+
+  * Reordered fields in the event screen to make more sense
+
+  * Add validation if the admin password is not set
+
+  * Add sorting for the fields entries, tracks, signup components to the event screen
+
+  * Update ordering on entries
+
+  * Replaced list fields for entries, signup components with checkboxes
+
+  * Add action to copy events
+
+  * Add option to control reconaissance laps
+
+  * Add option to control parc ferme including free settings
+
+  * Fixed an issue causing the start options not to work
+
+  * Added  option to control auto download

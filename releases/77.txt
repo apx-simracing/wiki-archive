@@ -1,0 +1,88 @@
+===== Release 77, 06th september 2021 =====
+
+<WRAP center round info 60%>
+Release 77 focused on fixing issues for production usage and to improve the initial onboarding process. This includes grip and session settings aswell as controlling what voting is possible for clients or not.
+
+Additional, the import command was added to allow the user to import large amounts of files.
+</WRAP>
+
+
+Download: https://github.com/apx-simracing/wizard/releases/tag/R77
+
+  * Fixed an issue within the demo data to remove the need to save the demo event once before deploying the first time
+
+  * Fixed an issue causing the mas files not to be seen on deployment to inject grip settings
+
+  * Add option to deny calls or votes on a event
+
+  * The grip needle can now also be set to "green" or "natural" to either get a green or naturally progressing starting point to the server
+
+  * Servers installed with APX can now rely on the same items folder. This folder is located in the folder "uploads". This allows all APX-created rFactor 2 servers to rely on the same pool of non-workshop items.
+
+  * Updated https://wiki.apx.chmr.eu/doku.php?id=file_based_content to reflect the new folder structures for managed servers
+
+  * Updated https://wiki.apx.chmr.eu/doku.php?id=track_updates to feature infos about why (external) rfcmp files are not supported
+
+  * Added the McLaren Senna to the common component list https://wiki.apx.chmr.eu/doku.php?id=common_component
+
+  * The plugins field in the event detail is now usable again
+
+  * In the case (for whatever reasons) when the Settings folder does not exist will APX now create the folder on the fly at deployment
+
+  * The layout filter feature does not work at the moment, I extended the troubleshooting article: https://wiki.apx.chmr.eu/doku.php?id=troubleshooting#i_see_all_layouts_within_the_server_but_i_only_need_one
+
+  * Fixed an issue causing the grip files not to be in the order display within the log, causing the grip needle to return wrong or unwanted matches
+
+  * Add field to the event configuration to control AI strength
+
+  * Change the multi select for plugins so it's using checkboxes
+
+  * Fixed an issue with the wrong workshop ID for the Radical_SR3-RSX_2017 on the https://wiki.apx.chmr.eu/doku.php?id=common_components article
+
+  * Add the Radical_SR3-XX_2020 to the common component list
+
+  * Add the option to clean up steamcmd downloads to save storage in the server options
+
+  * Add import script to import large amounts of existing files to entries and track files
+
+  * Add article on the import script https://wiki.apx.chmr.eu/doku.php?id=import
+
+  * Removed the vehicle vs track question at the import as the type of the desired component can be derived from the short name
+
+  * Added comparison between numeric and alphanumeric numbering schemes
+
+  * Removed need to define the separator char
+
+  * The import can rename files according to the APX required naming scheme as long as the number can be clearly identified
+
+  * Added confirmation list
+
+  * Added the livery file purpose to the import confirm list
+
+<code>
+Entry x64:
+         File aston_x64.dds: (Livery main file)
+         File aston_x64_Region.dds: (Livery region)
+Entry sample rename#045:
+         File foo_045.dds => aston_045.dds: (Livery main file)
+         File foo_045_Region.dds => aston_045_Region.dds: (Livery region)
+</code>
+
+
+  * Add option to give entries team names (input is done via stdin)
+
+<code>
+Do you want to set team names? Y/N: y
+Name of team with car #064 (enter to omit): My team
+Name of team with car #64 (enter to omit): Another team
+Name of team with car #045 (enter to omit): 
+Name of team with car #124 (enter to omit): Bratwurst Racing
+</code>
+
+  * Updated https://wiki.apx.chmr.eu/doku.php?id=import to represent new import logic
+
+  * Removed the validation on the component name to allow non-standardized names to be used (even as it's utter nonsense)
+
+  * Re-add welcome message to the event
+
+  * Add placeholder information to the help text of the welcome message field

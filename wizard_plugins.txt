@@ -1,0 +1,24 @@
+====== How to add plugins to servers ======
+
+
+====== Step 1: Add the plugin in the wizard ======
+
+Upload the DLL file(s) into the wizard app.
+
+{{::plugin_add.png?nolink&700|}}
+
+
+If you need, adjust the overwrites field, which will default to "{}". The content of this field are basically a subset of the CustomPluginVariables.JSON file. The point " Enabled: 1" will be added automatically
+
+<WRAP center round info 60%>
+If you update the same file (e. g. for multiple servers), you will see that the file recieves a suffix. This is on purpose.
+</WRAP>
+
+
+====== Step 2: Use the plugin ======
+
+In the event selection, select your uploaded plugin. On the next deployment, the plugin will be collected and enabled automatically.
+
+<WRAP center round important 60%>
+Please note that secondary tools (as for the weather plugin) are not started automatically and you ahve to handle these by yourself.
+</WRAP>

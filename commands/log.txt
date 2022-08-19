@@ -1,0 +1,19 @@
+====== log======
+
+===== Purpose =====
+
+Downloads the receiver.log of the [[:setup_reciever|reciever]] component to the local machine
+
+===== Arguments =====
+
+The filename.
+
+===== Examples =====
+
+<code>
+apx.py --server servername --cmd log --args thelogfilepath.log
+</code>
+
+===== Remarks =====
+
+Introduced in version 1.0.0

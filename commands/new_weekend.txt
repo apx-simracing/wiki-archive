@@ -1,0 +1,26 @@
+====== new_weekend ======
+
+<WRAP center round important 60%>
+This is a dangerous command.
+
+It relies on pywinauto and may be flaky to use.
+</WRAP>
+
+===== Purpose =====
+
+Returns the server to the start of the weekend (often practice session).
+
+
+===== Arguments =====
+
+None
+
+===== Examples =====
+
+<code>
+apx.py --server servername --cmd new_weekend
+</code>
+
+===== Remarks =====
+
+Introduced in version 1.0.0

@@ -1,0 +1,63 @@
+====== Demystifying rFactor folders ======
+
+<WRAP center round alert 60%>
+This article is a stub and not complete. Do not use it.
+</WRAP>
+
+
+===== Common files and extension =====
+
+^ Folder      ^ Contents          ^ Origin ^ 
+| *.rfcmp     | File container    | Server, Steam |
+| *.mas       | File container    | Server, Steam |
+| *.rfmod | Mod   | Server |
+| *.mft   | "Index file" | Server|
+| *.vcr   | Replay file | Client|
+| *.xml   | Result file | Client |
+| *.cbash | Cache | Client|
+| *.rrshd | Cache | Client |
+| dynamic.cache | Shader Cache | Client |
+
+
+===== Common folders  =====
+
+
+^ Folder      ^ Contents          ^ Origin ^ 
+| /Packages/    | rfcmp, unnamed files, rfmod | Downloaded from server, synced from steam |
+| /Installed | Contents from rfcmp files, grouped by <Type>/<Name>/<Version> | Origin of files is basically /Packages  |
+| /Manifests/ | Contains a set of components to use | Downloaded from server |
+| /Installed/rFm | Basic ruleset for a event, packaged in *.mas files | Downloaded from server |
+| /UserData/Log/CBash | Caches, per track | Created by the game on runtime |
+| /UserData/Log/Results/ | Result files, Batch *.ini file | Created by the game on runtime |
+| /UserData/Shaders | Shaders | Created by the game on runtime |
+| /UserData/player/LocalStorage | Profile directory of the new UI | Created by the game on runtime |
+| /UserData/player/LocalStorage | Profile directory of the new UI | Created by the game on runtime |
+| /UserData/player/player.JSON | Your settings | Created by the game on runtime |
+| /UserData/player/multiplayer.JSON | Your settings | Created by the game on runtime |
+| /UserData/Replays | Replays *.vcr (if enabled) | Created by the game on runtime |
+
+
+===== How to keep the installation as slim as possible?  =====
+==== Steam subscriptions ====
+
+Consider reducing your steam subscription (https://steamcommunity.com/id/<yoursteamid>/myworkshopfiles/?appid=365960&browsefilter=mysubscriptions). Otherwise you will never get a clean up effect as the files will be redownloaded and reinstalled on rFactor 2 program start.
+
+==== Remove unused packages after an event attendance ====
+
+<WRAP center round info 60%>
+This approach follows the strategy that you remove files directly after attending an event. This prevents old vMods from preventing other mod from being used properly.
+</WRAP>
+
+  * Removing *.rfcmp and *.rfmod files from /Packages
+  * Regular, *.rfcmp files show the format <Component>_<version>.rfcmp. The game seems to have a bug here, omitting the <version> part if a skinpack was downloaded from a server. This means you will see only <component>.rfcmp files. Identify files related to an attended event based on the change date.
+  * Remove the *.mas file named after the event from Installed/rFm/
+  * Remove the *.mft file named after the event from Manifests (NOT "All Tarcks & Cars_1.mas")
+
+At this point, the game will stop to try to reinstall the mod contents anymore. Now you have to identify the contents added by the mod, which may be tricky. You either have to check all contents or follow the approach of just removing any installed folder except "CorvettePCLights" and all folders inside Locations. 
+
+If you restart the game, the subscribed locations and vehicles will be reinstalled, but only in stock versions.
+
+
+
+
+

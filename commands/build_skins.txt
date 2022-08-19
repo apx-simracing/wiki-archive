@@ -1,0 +1,40 @@
+====== build_skins ======
+
+===== Purpose =====
+
+This command builds an intermediate skin pack to be uploaded on the server. The command utilizes the [[:setup|directory structure]] configured in the [[:servers.json]] file.
+
+Following paths must be set in the [[:servers.json]] entry:
+
+  * build_path: This file contains subdirectories named by the vehicle components, e. g. "Corvette_C7R_GTE_2017" or "Oreca_07_LMP2_2017"
+  * out_path: temporary files only
+  * packs_path: For each component, a *.tar.gz file will be created and uploaded to the target server's build directory.
+  * templates_path: The path where the template VEH files are stored
+
+After packaging the *.tar.gz archives, the file will be uploaded to the server and pasted in the build directory.
+
+For a complete tutorial see this article: https://wiki.apx.chmr.eu/doku.php?id=example_event_bmw_m8_gte_custom_liveries_autopolis
+
+===== Arguments =====
+
+None.
+
+===== Examples =====
+
+<code>
+apx.py --server servername --cmd build_skins --args <pathtoyourconfig>
+</code>
+
+===== Remarks =====
+
+Introduced in version 1.0.0
+
+<WRAP center round info 60%>
+build_skins will only do something if you configure and update to be build. See [[:event configuration]] for more details. The command will look for files following the <shortname>_<entrynumber> file name format.
+</WRAP>
+
+Inroduced with R80
+
+<WRAP center round info 60%>
+The comman diwll not alter filenames anymore. The names must have suitable names.
+</WRAP>

@@ -1,0 +1,19 @@
+====== addbot ======
+
+===== Purpose =====
+
+Adds an AI to the server.
+
+===== Arguments =====
+
+None
+
+===== Examples =====
+
+<code>
+apx.py --server servername --cmd addbot
+</code>
+
+===== Remarks =====
+
+Introduced in version 1.0.0

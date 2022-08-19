@@ -1,0 +1,110 @@
+<WRAP center round alert 60%>
+This is a stub, use with caution.
+</WRAP>
+====== Getting started ======
+
+
+You will have to setup **once** a wizard an a receiver. A wizard can handle multiple recievers. After that, you work only from the web application. You can make the wizard be used from outside the server, but see the remarks written in the article [[security_considerations|Security considerations]].
+
+This guide will lead you on how to install both components. At the end there should be an running, configured server.
+
+
+====== Terminology ======
+
+
+  *Reciever: An program running on your server, controlling the rfactor instance
+  *Wizard: The web app to manage everything
+
+
+====== Download ======
+
+The latest version is described on [[releases:releases|this page]]. Download links are listed there.
+
+Expand "Assets" and Download the zip file. Currently named "R" and a number. You will have to download the zipfile from the download link below. The number will be different compared to the screenshot, but should be higher in general.
+
+{{::download.png?nolink&600|}}
+
+Download Links
+  * https://github.com/apx-simracing/wizard/releases
+
+
+====== Windows protected your PC ======
+
+As the batchfiles have their origin on another PC, Windows will complain about them. You can unlock the files by going in the file properties and choose "unlock" at the bottom.
+
+
+
+====== Set up wizard ======
+
+Extended guide: https://wiki.apx.chmr.eu/doku.php?id=setup_wizard
+
+Execute the file //wizard.bat//. Answer the questions prompted.
+
+Open http://localhost:8000/admin on the same PC to open the web interface. You have to run this batchfile each time you want to start the wizard web application.
+
+
+<WRAP center round important 60%>
+:!: **To quit the wizard, use the key command CTRL+C in the black terminal window!!!!!** :!:
+</WRAP>
+
+====== Create a server ======
+
+Use "Create server from scratch" (the easy way): APX will create a new server by itself, you don't have to do anything.
+
+====== Configure event ======
+
+You can select the demo event and choose your desired track and car combination.
+
+<WRAP center round info 60%>
+When using paid content, unlock the server first. You can do this with dowloading the key file: https://forum.studio-397.com/index.php?threads/how-to-hosting-with-steamcmd-and-paid-content.57209/. The key unlock file will be automatically uploaded, if present.
+
+Recommendation: For testing, use a free combination, such as Zandvoort + Honda Civic.
+</WRAP>
+
+After that, switch back to the server, select your event and select update config and redeploy. This will install the required content and will do an update.
+
+
+
+{{::start.png?nolink&600|}}
+
+<WRAP center round info 60%>
+You can only deploy not-running servers.
+</WRAP>
+
+
+After deployment is completed, you can select start to spin up the server.
+
+
+
+APX will inform you what is currently going on (see the "state" column).
+
+{{::state.png?nolink&800|}}
+
+
+After completion you can select the option "start" to execute the server
+
+{{::start_server_wizard.png?nolink&600|
+}}
+
+The server should start now with your desired event configuration.
+
+
+**Thats it.**
+
+
+
+----
+
+====== Things you still need to do ======
+
+  * Open firewall ports (neither expose the WEB UI port nor the wizard ports to the internet!, you can use the [[firewall|Firewall rule generation]] for that.)
+  * To download uploads from the web site, you will need a separate webserver. For testing, you can use the script //uploads.bat//.
+
+
+====== I want to use stamping ======
+
+
+  * Download: https://imagemagick.org/script/download.php#windows
+  * Use the download with "Win64 dynamic at 16 bits-per-pixel component with high dynamic-range imaging enabled"
+  * Make sure you select the option "Install development libraries and headers for C and C++
+

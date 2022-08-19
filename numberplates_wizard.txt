@@ -1,0 +1,80 @@
+====== Numberplates in Wizard ======
+
+Adding mandatory elements can bet tricky when participants do not have suitable software. APX supports adding numberplates according to your definition automatically on upload. No by-hand editing of files required.
+
+The wizard can add numberplates, if needed. Numberplates consist out of a background image and a region template. Numbers will be added on top automatically according to the entry record.
+
+The feature allows rotation and horizontal flipping ("flop") on the image to allow non-symmetrical numberplate templates to be displayed properly. Images will be first flipped, then rotated.
+
+<WRAP center round tip 60%>
+To use this feature, make sure imagemagick is present on your system. This is for example shown [[https://docs.wand-py.org/en/0.6.5/guide/install.html#install-imagemagick-on-windows|on this tutorial]].
+</WRAP>
+
+
+===== Numberplate livery =====
+
+The numberplate livery consist out of the background for the numberplate it self as a DDS (DXT5) file.
+
+<WRAP center round info 60%>
+The addition of numberplates takes some time. See https://github.com/apx-simracing/wizard/issues/7 for details
+</WRAP>
+
+<WRAP center round info 60%>
+Consider to add an Albedo layer on top of your numberplate template in case it is "too much shiny". Make sure your participants don't use the Region color of your numberplate mask for chrome or similar coloring schemes.
+</WRAP>
+
+
+
+===== Amount and position =====
+{{::numberplates.png?nolink&1200|}}
+
+<WRAP center round tip 60%>
+Add all options in each case. 
+</WRAP>
+
+
+Amount and position are configured as a JSON array. One element of this has following structure:
+
+  * outer: The X and Y coordinates where the numberplate should be located (as array). The outer X coordinate is the top left position of the image. It gets rotated on the spot.
+  * inner: The X and Y coordinates where to start the number text (as array). The coordinates represent the left bottom corner of the text begin
+  * size: An integer describing the size of the font (choose a suitable size, there is no linebreak logic)
+  * color: The hexcode of the color to use for the font
+  * rotate: An integer describing the rotation (0-360)
+  * flop: Flip the background vertically (required): //true// or //false//
+  * side (left or right template): "l" or "r". Decides which template will be used.
+
+===== Full example =====
+
+
+
+<code>
+[
+   {
+     "outer": [1533, 347],
+     "inner":  [80, 240],
+     "rotate": 180,
+     "size": 160,
+     "color": "#4CFF00",
+     "flop": false,
+     "side": "r"
+   },
+   {
+     "outer": [991, 1600],
+     "inner":  [80, 240],
+     "rotate": 45,
+     "size": 160,
+     "color": "#4CFF00",
+     "flop": false,
+     "side": "r"
+   },
+ {
+     "outer": [1621, 2279],
+     "inner": [80, 240],
+     "rotate": 0,
+     "size": 160,
+     "color": "#4CFF00",
+     "flop": false,
+     "side": "l"
+   }
+]
+</code>

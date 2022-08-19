@@ -1,0 +1,30 @@
+====== Wizard: Additional properties for entries ======
+
+The VEH files are basically just key=value pairs. Some of the values are edited by APX (team names, numbers, pit groups mostly), but under some circumstainces you might to adjust further values (for example classes). To archieve this, the wizard allows you to add multiple //key="value"// pairs to be used.
+
+If you want to adjust key value pairs from the VEH file, you can overwrite any existing value from the VEH template. The VEH template was added in the component as a text. Not existing values will be ignored.
+
+===== Order =====
+
+The order does not matter, but APX will first do auto replacements (e. g. vehicle number) and then apply the values from the text box.
+
+
+===== Example =====
+
+If you want to define the class for an entry, you can add //Classes="SP4"// to the text box on the entry.
+
+APX will pick up these values on build, but after inserting the defined values such as pit group, team names and so on.
+
+You can add additional values with adding multiple lines.
+
+<WRAP center round info 60%>
+Encapsulate the values within double quotes.
+</WRAP>
+<WRAP center round important 60%>
+This feature can only be applied if you enabled updating on a component.
+</WRAP>
+
+
+Full Example:
+
+{{::entry_overwrite.png?direct|}}

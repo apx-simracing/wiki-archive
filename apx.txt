@@ -1,0 +1,17 @@
+====== APX? ======
+
+  * APX is an abbreviation for //"You missed the apex you bloody idiot".//
+  * APX do not aim to make things //easier//. The goal is to make things being done //automatically//.
+  * APX is an one-man-show, based on an proof-of-concept with about 6 month of development time
+  * APX will not be an all-inclusive-solution. It will give an base API to work from, the rest can be designed as wanted by (league) administrators themselves
+  * APX does not do binary injection or any fiddling around with the binaries
+  * APX is an automation project, so you might need some basic knowledge before using it.
+  * There is a discord server for discussion: https://discord.gg/qwSkeAM
+  * Read the [[disclaimer]] and the [[limitations]]
+
+
+
+
+{{:automation.png?400|}}
+
+Obligatory [[https://xkcd.com/1319/|XKCD]].

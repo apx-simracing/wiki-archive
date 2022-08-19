@@ -1,0 +1,221 @@
+====== Reciever hooks ======
+
+APX offers the possibility to add an event-driven API to the rFactor 2 server, allowing you to react effective on race situations.
+
+===== Add a new hook =====
+
+<WRAP center round important 60%>
+Make sure that the hook execution stays below 1 second. Otherwise use threads and locks.
+</WRAP>
+
+
+<WRAP center round important 60%>
+Hooks won't work properly if running in debug mode.
+</WRAP>
+
+Hooks consist out of a Python file inside of /hooks/ and a method to be called. To reigster the hook, the method needs to be included in init file in the /hooks/ directory.
+
+Also, the hook needs to be registered using  /register("eventName", HOOKS, method)/. The //eventName// is case sensitive. 
+
+An example for the contents of /hooks/ is available here: https://github.com/apx-simracing/hooks. Take a look especially on https://github.com/apx-simracing/hooks/blob/main/__init__.py to see how the order of hooks is controlled.
+
+The hooks getting executed per event based on their register order.
+
+===== Hook list =====
+==== onCarCountChange (vehicles: list, vehicles: list, overall_status)====
+
+Fires if the amount of cars Change. If a car can resumes a race, the event won't be fired.
+
+
+==== onDriverPenaltyChange(driver: str, old_penalty_count: int, new_penalty_count: int, overall_status)====
+
+Fires if the amount of penalties for a driver changes.
+
+
+==== onDriverPenaltyRevoke(driver: str, old_penalty_count: int, new_penalty_count: int, overall_status)====
+
+Fires if the amount of penalties for a driver was reduced.
+
+
+==== onDriverPenaltyAdd(driver: str, old_penalty_count: int, new_penalty_count: int, overall_status)====
+
+Fires if the amount of penalties for a driver was increased.
+
+==== onFinishStatusChange(driver: str, old_status: str, new_status: str, overall_status)====
+
+Will be executed if the finish state changes. //old_status// and //new_status// can have following **string**-based values:
+
+  * FSTAT_NONE
+  * FSTAT_DNF
+  * FSTAT_DQ
+
+<WRAP center round info 60%>
+if a entry is new, this event will be fired.
+</WRAP>
+
+==== onLowSpeed(driver: str, speed: float, location: float, nearby_drivers: list, team_name: str, overall_status)====
+
+<WRAP center round info 60%>
+The file with "init" in the hooks directory contains the constant LOW_SPEED_THRESHOLD to control the comparison value for this hook.
+
+This event will be called as often until the car resumes racing speed or gets back to pit or garage.
+</WRAP>
+
+
+Will be executed if a driver is not in garage or pitting and the car velocity is below 50 km/h. The location parameter will contain the current track position.
+
+nearby_drivers is a list of driver names nearby
+
+
+==== onPitStateChange(driver: str, old_status: str, new_status: str, overall_status)====
+
+Will be executed if the pit state changes. //old_status// and //new_status// can have following **string**-based values:
+
+  * NONE
+  * REQUEST
+  * ENTERING
+  * STOPPED
+  * EXITING
+
+<WRAP center round info 60%>
+if a entry is new, this event will be fired.
+</WRAP>
+
+
+==== onSessionChange(old_session: str, new_session: str, overall_status)====
+
+Will be called when a server session switches. Example values for //old_session// and //new_session//:
+
+  * PRACTICE1
+  * QUALIFY1
+  * RACE1
+  * INVALID
+
+<WRAP center round important 60%>
+During startup and certain switch transistions, the server will switch to INVALID first.
+</WRAP>
+
+
+==== onShownFlagChange(driver: str, old_yellow_flag: bool, new_yellow_flag: bool, overall_status)====
+
+If the shown yellow flag for a driver changes, the event will be called.
+
+
+==== onStart() ====
+
+Called after server is started.
+
+<WRAP center round important 60%>
+As the start is asynchronous, the process may not be listening when the event is fired.
+</WRAP>
+
+
+==== onStop(overall_status) ====
+
+Called after server is stopped.
+
+
+==== onDriverSwap (slotId: int, oldDriver: str, newDriver: str, overall_status) ====
+
+Fires if an driver switches. The slotId is the rFactor 2 slot id, which is basically a zero-based index.
+
+
+
+
+==== onNewResult(oldResults: list, newResults:list, overall_status) ====
+
+<WRAP center round important 60%>
+The hook fires if the file is existing, but maybe not until it's free of handle blocks.
+</WRAP>
+
+
+Fires if a new result file gets written. Both arrays contain filenames only.
+
+
+==== onNewReplay(oldReplays: list, oldReplays:list, overall_status) ====
+
+<WRAP center round important 60%>
+The hook fires if the file is existing, but maybe not until it's free of handle blocks.
+</WRAP>
+
+
+Fires if a new replay file gets written. Both arrays contain filenames only.
+
+
+==== onNewBestLapTime(driver, best_lap, teamName, overall_status) ====
+
+<WRAP center round important 60%>
+The hook may fire at the start of an event multiple times. Use a delay. If the reciever restarts, the same behaviour will occur.
+</WRAP>
+
+==== onNewPersonalBest(driver, old_best, new_best, overall_status) ====
+
+<WRAP center round important 60%>
+The hook will fire if the in-session personal best changes. The times are set in seconds.
+</WRAP>
+
+
+==== onLapCompleted(driver, new_count, overall_status) ====
+
+Fires if a driver completes a lap.
+
+==== onPositionChange(driver, old_position, new_position, overall_status) ====
+
+Fires if a driver gets a new position.
+
+<WRAP center round important 60%>
+Overall position.
+</WRAP>
+
+
+==== onUnderYellowPositionChange(driver, old_position, new_position, overall_status) ====
+
+Fires if a driver gets a new position.
+
+<WRAP center round important 60%>
+Overall position.
+</WRAP>
+
+Fires if a new best lap was done.
+
+==== onSuspectedLag(driver: str, speed: float, old_speed:float, location: float, nearby_drivers: list, team_name: str, overall_status)====
+
+<WRAP center round info 60%>
+The file with "init" in the hooks directory contains the constant LAG_DIFFERENCE_THRESHOLD to control the comparison value for this hook.
+</WRAP>
+
+Fires if a car shows a absolute difference (LAG_DIFFERENCE_THRESHOLD) above a threshold within the configured interval of the backround status thread.
+
+==== onSteamIdChange(slotId, old_id: str, new_id: str, overall_status)====
+Fires if a steam id changes on a slot.
+
+==== onGarageToggle(driver: str, old_status: boolean, new_status: boolean, overall_status)====
+
+Fires if a car exits or returns to the garage.
+
+<WRAP center round info 60%>
+The event may fire on pitstops.
+</WRAP>
+
+
+==== onPittingChange(driver: str, old_status: boolean, new_status: boolean, overall_status)====
+
+Fires if a car is pitting.
+
+
+==== onTick(overall_status)====
+
+Fires each time if the reciever completes a tick. Used to publish changes towards the wizard.+
+
+
+
+
+==== onDeploy ()====
+Fires after an deployment is completed.
+
+
+
+
+
+==== onStateChange(event: str, args: str)====
+Fires after an event on deployment happens.

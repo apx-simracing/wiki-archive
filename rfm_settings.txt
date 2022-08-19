@@ -1,0 +1,25 @@
+====== Update rFM settings ======
+
+In the Race conditions screen, you have two options:
+
+  - Upload a rfm file
+  - Set settings in the screen
+
+
+===== Set settings =====
+
+You can set one option per line. Follow the syntax key=value.
+
+**Exception** Pit groups will be set using GroupX=value (as there are multiple lines with same key in the rFm)
+
+==== Examples ====
+
+  - //RaceStart = 16:00//
+  - //Group16 = 3// (will generate PitGroup = 3, Group16)
+
+
+===== Restore defaults settings =====
+
+  - Select the "clear" box on the filename
+  - Empty the settings box
+  - Save the race weekend

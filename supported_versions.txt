@@ -1,0 +1,6 @@
+====== Supported versions ======
+
+
+In general, support is limited due the nature of a one man project.
+
+The last 5 releases of the wizard recieve "base" support. But always consider to be on the latest release.

@@ -1,0 +1,19 @@
+====== kick======
+
+===== Purpose =====
+
+Kicks a player
+
+===== Arguments =====
+
+Driver name.
+
+===== Examples =====
+
+<code>
+apx.py --server servername --cmd kick --args "Driver Fullname"
+</code>
+
+===== Remarks =====
+
+Introduced in version 1.0.0

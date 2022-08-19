@@ -1,0 +1,27 @@
+====== Forced updates vs regular updates ======
+
+You have two ways from the wizard to update content
+
+  - Update config and redeploy
+  - Update config and redeploy, force content re-installation
+
+Following table should describe the difference.
+
+|Update|Description|
+|Update config and redeploy|Update the server settings (player, multiplayer.json, grip, sessions, content, liveries) ONLY if the mod contents (**source rfcmp files AND/ OR uploaded liveries**) changed|
+|Update config and redeploy, force content re-installation|Updating anything independend of any existing and installed content|
+
+If you are doing an by hand update or you are working on the mod pack itself, choose the **second option** to make sure everything is cleaned and reinstalled properly. If you just want to keep your existing configuration up-to-date (e. g. from a schedule), you choose the **first option**. The content will only be updated if something with the origin mods has changed, saving resources and downtime.
+
+If you are going for the first option and the mentioned content did not change, the deployment will fail with an error message describing the situation.
+
+===== Technical details =====
+
+  * Files inside the steam child folder steamapps\workshop\content\365960\<steamid> are monitored (both mod and base mod will be monitored)
+  * File based mods schould be monitored aswell, while base mods cannot be a file based item
+  * event structure (sessions, names, options) will be ignored in the monitoring
+  * Livery files as uploaded in the wizard will be monitored aswell (veh files will be ignored)
+  * APX will always attempt to do a steamcmd update for the content. If the content is up to date, there won't be a download. This cannot be avoided.
+
+
+

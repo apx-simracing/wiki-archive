@@ -1,0 +1,248 @@
+====== Example Event: BMW M8 with custom liveries @ Autopolis ======
+
+<WRAP center round info 100%>
+**Disclaimer**
+
+Before we start I might give you a warning. This process requires some basic knowledge about rFactor 2 package management and requires high attention as error management is a bit complicated here.
+
+Also, this article follows the principle that your server and the CLI are running on different machines with the CLI using side having a collection folder for the liveries.
+</WRAP>
+
+APX will require the item steam ID's. If you have the item URL, it's the number after "id=" (so e. g. https://steamcommunity.com/sharedfiles/filedetails/?id=**1559152337**&searchtext=botniar)
+
+  * BMW M8 GTE: 1411402133
+  * Autopolis: 1559152337
+
+<WRAP center round info 80%>
+You have to do this configuration once. If updates are released, just run the last command again.
+</WRAP>
+
+===== Identifying content =====
+
+This steps are equal to the steps from the default livery tutorial: https://wiki.apx.chmr.eu/doku.php?id=example_event_civic_2013_botniaring
+
+If you plan to just include your own entries and not the stock one, you might not need this as we describe the needed components in this article.
+
+===== Creating the event JSON file=====
+
+As we now collected all required informations, we can create the event json file. You can drop this file everywhere on your computer, you just need to remember it's path.
+
+==== Recommendation: ====
+
+  * Make sure you version and name the mod properly. If a mod was updated, but neither version or name changed, it causes an mod install error/ clients are stuck in the loading screen
+  * Set the "WebUI port" to an open port **per server**. It will be used for per-user status checking
+  * Even for workshop mods, always name vehicle entries (at least one!)
+
+
+<code>
+{
+  "server": {
+    "overwrites": {
+      "Multiplayer.JSON": {
+        "Multiplayer Server Options": {
+          "Pause While Zero Players": false,
+          "Join Password": "",
+          "Admin Password": "myPassword",
+          "Default Game Name": "APX BTCC",
+          "Enforce Real Name": true,
+          "Practice 1 Time": 180,
+          "Qualifying Time": 30,
+          "Max MP Players": 25,
+          "Maximum AI": 25,
+          "Race Rejoin": 3
+        },
+        "Multiplayer General Options": {
+          "Download Custom Skins": false,
+          "Net Connection Type": 6,
+          "Downstream Rated KBPS": 25000,
+          "Upstream Rated KBPS": 25000
+        }
+      },
+      "Player.JSON": {
+        "Game Options": {
+          "MULTI Race Finish Criteria": 2,
+          "MULTI Race Time": 60,
+          "MULTI Damage Multiplier": 50,
+          "Record Replays": 0
+        },
+        "Miscellaneous": {
+          "WebUI port": 5398
+        }
+      }
+    }
+  },
+  "session": {},
+  "options": {},
+  "cars": {
+    "1411402133": {
+      "entries": [
+        "BMW M8 GTE #00:1",
+        "BMW M8 GTE #3:1",
+        "BMW M8 GTE #9:2",
+        "BMW M8 GTE #26:2",
+        "BMW M8 GTE #44:2",
+        "BMW M8 GTE #54:3",
+        "BMW M8 GTE #75:3"
+      ],
+      "component": {
+        "version": "latest",
+        "name": "BMW_M8_GTE_2018",
+        "update": true,
+        "short": "BMW",
+        "numberplates": []
+      }
+    }
+  },
+  "track": {
+    "1559152337": {
+      "layout": "Autopolis International",
+      "component": {
+        "version": "latest",
+        "name": "Autopolis",
+        "update": false
+      }
+    }
+  },
+  "start_type": 0,
+  "comp": "pre-beta",
+  "plugins": {},
+  "branch": "public",
+  "mod": {
+    "name": "apx_bmw_gte_autopolis",
+    "version": "1.0",
+    "rfm": "default.rfm"
+  },
+  "update_on_build": true,
+  "callback_target": "http://localhost:8000/addmessage/cffhddcfgahchafbhifg",
+  "welcome_message": null,
+  "suffix": null
+}
+</code>
+
+Note following on the JSON file: The "Short name" of the vehicle entry component must be set to a defined name you know. Also, "update" should be set to true.
+
+In this example, we will just include our custom  cars.
+
+===== Adding liveries =====
+
+As you might remember, you set three paths inside your CLI configuration (https://wiki.apx.chmr.eu/doku.php?id=servers.json).
+
+The folder is basically a collection of raw contents for liveries, grouped per component (here a component is roughly equal to a vehicle):
+
+{{::raw_folder.png?400|}}
+
+As you can see, the folder contains a large range of files, such as:
+  * Livery files
+  * Region files
+  * Material system files
+  * Thumbnails
+  * Extra-Parts (e. g. WINDOW)
+  * Vehicle upgrades
+
+The folder BMW_M8_GTE_2018 looks as following:
+
+{{::raw_contents.png?800|}}
+
+How you fill this folder is on your hand. APX just need that the contents of the folder will be stored in the configured "build_path" of your [[servers.json|servers.json]]. And make sure you use sub directories as component names, as shown in the screenshot.
+
+
+
+===== Avoiding pitfalls =====
+
+  * File should always begin with the <ShortName>_<VehicleNumber>.
+  * Make sure you don't mix different vehicle files inside on folder
+  * Double check if the component names are correct. They are used here:
+    * configs/templates/<ComponentName>.veh (template)
+    * yourrawfolder/<ComponentName>/ (where the liveries are stored)
+    * in the component section of the event configuration
+
+===== Creating liveries =====
+
+Inside your CLI directory, you might have seen the folder templates inside the configs directory. You will need a template per vehicle/ component you are using. You can follow the official guide ([[https://docs.studio-397.com/users-guide/custom-liveries-how-to-make-an-update-rfcmp-for-league-use#CustomLiveries:HowtoMakeanUpdate'rfcmp'forLeagueUse.-Part1:SettinguptheVEHfiles|https://docs.studio-397.com/users-guide/custom-liveries-how-to-make-an-update-rfcmp-for-league-use#CustomLiveries:HowtoMakeanUpdate'rfcmp'forLeagueUse.-Part1:SettinguptheVEHfiles]] , step 4 of "Setting up the VEH files") for that.
+
+<WRAP center round important 60%>
+Make sure you add placeholders in the VEH file
+</WRAP>
+  
+
+Make following replacements in the file:
+
+  - DefaultLivery="YOURSHORTNAME_{number}.dds" (YOURSHORTNAME = shortname from the event configuration)
+  - Number={number} 
+  - Description="{description}"
+  - FullTeamName="{description}"
+
+Of yourse you can edit other values based on your needs.
+
+A template may look like this then after it's being stored in configs/templates/<ComponentName>.veh:
+
+<code>
+DefaultLivery="BMW_{number}.dds"
+MaterialOverride="M8_GTE_2018_BaseMat.json"
+Extra0="window"      // Windows
+Extra1="BAN"      // Banner
+Extra2="WD"      // front window decal
+Extra5="RWIN"      // rear trunk window
+Extra7="SW"    // steering wheel
+Extra8="DH"    // Driver arms
+Extra9="DH"    // Driver arms
+
+HDVehicle=M8_GTE_2018.hdv
+Graphics=M8_GTE_2018.gen
+Spinner=M8_GTE_2018_spinner.gen
+GenString=                       // Used to generate GMT names in *.gen file
+Sounds=M8_GTE_2018_sounds.sfx                   // Sounds=default.sfx
+Cameras=M8_GTE_2018.cam              // Defaults to default.cfg in UserData directory
+HeadPhysics=GTE_HEADPHYSICS.ini      // Affects driver eyepoint only
+Cockpit=M8_GTE_2018_cockpitinfo.ini
+ExternalDisplays=M8_GTE_2018_externalDisplays.ini
+Upgrades=M8_GTE_2018_upgrades.ini
+
+
+//////////////////////////TEAM HISTORY AND INFORMATION///////////////////////////////
+
+Number={number} 
+Team="VSRA Guest Car"
+PitGroup="Group1"
+Driver="Driver"
+Description="{description}"
+Engine="4.0l V8"
+Manufacturer="BMW Motorsport"
+Classes="GTE"
+
+FullTeamName="{description}"
+TeamHeadquarters=""
+
+Category="BMW, GTE, BMW M8 GTE"
+
+</code>
+
+===== Upload liveries =====
+
+The liveries will require one additional command:
+
+<code>
+python .\apx.py --server local --cmd build_skins --args .\configs\sample-gte-bmw-m8-autopolis-liveries.json
+</code>
+
+This command will generate //all// veh files, pack them and upload them onto the server.
+
+<WRAP center round info 60%>
+If the command is not executed, but the event configuration requires an update (in the component section), the command //deploy// will fail.
+</WRAP>
+
+
+===== Startup! =====
+
+
+
+<code>
+python apx.py --server <yourserver> --cmd deploy --args <path_to_the_btcc-botniaring_config> configs/rfm/default.rfm
+</code>
+
+<servername> is hereby one of the configurated server names from your [[servers.json|servers.json]].  The server will always be updated to the most recent version. APX will embed the new liveries automatically.
+
+**In conclusion:**
+
+You will have to follow this guide once. After that, just use the [[commands:build_skins|build_skins]] and [[commands:deploy|deploy]] commands to update the liveries and the server itself. No file editing, no file copying. Just the two commands.
+

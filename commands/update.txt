@@ -1,0 +1,24 @@
+====== update ======
+
+===== Purpose =====
+
+Update the server to the latest version of the configured branch.
+
+<WRAP center round important 60%>
+Switching the branch is not supported. You will have to redeploy the entire content to switch branches
+</WRAP>
+
+
+===== Arguments =====
+
+None.
+
+===== Examples =====
+
+<code>
+apx.py --server servername --cmd update
+</code>
+
+===== Remarks =====
+
+Introduced in R80 preview 5

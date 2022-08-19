@@ -1,0 +1,65 @@
+====== Requirements ======
+
+<WRAP center round important 60%>
+:!::!: __//**This guide is considered deprecated and is only kept for technical reasons.**//__:!::!:
+</WRAP>
+
+
+The reciever is not allowed to be run with a user which is member of an administrative group. Create an unprivileged user.
+
+====== Install reciever ======
+
+  * Download a stable release from https://github.com/apx-simracing/reciever/releases
+  * Unpack the contents **IN AN EMPTY DIRECTORY**
+  * Run reciever.bat to install everything, write down port and secret
+  * Run reciever.bat to launch the reciever
+
+===== Unpack contents =====
+
+
+After unpacking, you will most likely have a folder with this contents:
+
+{{::apx_release.png?600|}}
+
+Make sure the folder itself is named "reciever". On the same level, all other components will be placed:
+
+{{::apx_folders.png?400|}}
+
+You can locate them anywhere you want, but just make sure you have all four folders be placed besides each other, like in the screenshots. This bundle will be needed per server instance. An example of folder structures for two concurrent servers:
+
+<code>
+C:\server1\reciever
+C:\server1\build
+C:\server1\steamcmd
+C:\server1\server
+C:\server2\reciever
+C:\server2\build
+C:\server2\steamcmd
+C:\server2\server
+</code>
+
+<WRAP center round info 60%>
+WTF why is that needed?
+
+APX follows an isolated approach. That means that each reciever has a defined, controllable folder structure besides it. Also, this makes bootstrapping more easy and lightweight. This won't be changed.
+</WRAP>
+
+
+===== Configure and run =====
+
+Please consider the [[security_considerations|Security considerations]] before running in an productive environment.
+
+
+<WRAP center round info 100%>
+At first launch, the start may fail with UIAutomation.dll is missing. In this case, just try it a second time. It will work then. This is a known bug.
+</WRAP>
+
+On the first launch, APX will create the other folders (build, server, steamcmd). As you might assume, the rFactor 2 server will be installed into //server//, steamcmd will be automatically placed in //steamcmd//.
+
+After execution, you will have everything installed and you will get the settings for using with CLI or wizard will be displayed (note especially the port and the secret). Check the generated configuration in the server.json. Especially check for the correct root folder. The root folder should point to the folder containing the folders reciever, server, build. Espeecially check if the root_path matches the parent path where the reciever is running tinto (e. g. when// reciever.bat// is located in //C:\servers\whatever\reciever\//, the value should be //C:\servers\whatever//).
+
+If everything is fine, just execute reciever.bat.
+
+Inside the wizard app, add the secret and the reachable URL into the form. The URL for example http://<ipoftheserver>:<choosedport>. 
+
+{{::apx_server_add.png?direct&800|}}

@@ -1,0 +1,132 @@
+====== Common Components ======
+
+Help to identify components for the entries marked with FIXME
+
+The column "component" refers to the folder names inside Installed/Vehicles and Installed/Locations
+
+===== Cars =====
+
+|Component|Steam-ID|
+|AstonMartin_Vantage_GT3_2019|1596822282|
+|Audi_R8LMS_GT3_2018|1596822230|
+|Audi_R8LMS_GT3_2019|1596822230|
+|McLaren_650S_GT3_2017|1097229192|
+|Bentley_Continental_GT3_2017|1097230662|
+|Bentley_Continental_GT3_2020_2020|1097230662|
+|McLaren_720S_GT3_2018|1596821875|
+|Mercedes_AMG_GT3_2017|1097232656|
+|Norma_M30-LMP3_2017|1411402158|
+|BMW_M2_CS_2020|1923574682|
+|Oreca_07_LMP2_2017|1411402194|
+|BMW_M6_GT3_2018|1596822133|
+|BMW_M8_GTE_2018|1411402133|
+|Porsche_911_GT3_R_2018|1596822183 |
+|Callaway_Corvette_GT3_2017|1097232188 |
+|Porsche_991RSR_GTE_2017|1411394979 |
+|Corvette_C7R_GTE_2017|1411387394 |
+|Porsche_Cup_GT3_2018|1872951506|
+|Radical_RXC_GT3_2017|1097232726|
+|ER_AlpineSeries_rF2|2362626369|
+|Ferrari_488_GT3_2020|2103827617|
+|Ferrari_488_GTE_2020|2103827595|
+|Radical_SR3-RSX_2017|950759997|
+|Radical_SR3-XX_2020|2113612677|
+|Formula_E_2018|1214555461|
+|Formula_E_Gen2_2019|1558324776|
+|Formula_E_Gen2_2021_2021|1558324776|
+|FVee_2018|1694798885|
+|Cadillac_DPi_2020|2331283978|
+|Ligier_JSP217_2020|2331284205|
+|eX_ZERO_2021|2271976749|
+|HondaCivicBTCC_2013|922034382|
+|Tatuus_F3_T318_2018|1782908881|
+|Tatuus_F4_2018|1782909995|
+|Tatuus_FT-50_2018|1782911839|
+|Tatuus_FT-60_2018|1940450049|
+|Tatuus_MSV_F3-016_2018|1782913069|
+|Tatuus_MSV_F3-020_2020|2559701680|
+|Tatuus_PM-18_2018|1782915348|
+|Tatuus_USF-17_2018|1782916300|
+|FormulaPro_2021|2523945426|
+|SC2018_2018|2183577229|
+|SC2015_2015|917387475|
+|SC2018X_2018|2433676648|
+|BMW_M4_Class1_2021|2525930688|
+|McLaren_MP4_8_1993|1515644900|
+|Corvette_C8R_GTE_2020|2331284105|
+|AstonMartin_Vantage_GTE_2019|1737056920|
+|DallaraDW12_2014|917387259|
+|McLaren_Senna_GTR_2019|1737056888|
+
+<WRAP center round important 60%>
+FIXME The cars from the Reiza Pack are mostly missing yet.
+</WRAP>
+
+
+===== Tracks =====
+
+<WRAP center round info 60%>
+The Layouts are located in GDB files inside the mas files. Search for "TrackName".
+</WRAP>
+
+
+|Component|Steam-ID|Layouts|
+|Sebring_2018|1453463528|Sebring -- 12 Hour Road Course, Sebring -- Full Layout, Sebring -- Johnson Club, Sebring -- School|
+|Nurburgring_2018|1737056846|Nurburgring -- 24h, Nurburgring -- 24h Support, Nurburgring -- Combined, Nurburgring -- Endurance Series, Nurburgring -- Grand Prix, Nurbrugring -- Grand Prix No Chicane, Nurburgring -- Nordschleife , Nurburgring -- Sprint, Nurburgring -- Sprint No Chicane|
+|HongKong_2018|1214556324|Hong Kong Formula E|
+|LeMans_2018|1737056865|24 Heures du Mans 2018, 24 Heures du Mans 2020|
+|SpaFrancorchamps_2020|2291867462|Spa-Francorchamps, Spa-Francorchamps Endurance|
+|Zandvoort_2017|1107038453|Zandvoort Club, Zandvoort East, Zandvoort GP, Zandvoort GP Chicane, Zandvoort National|
+|Zandvoort_2020|1107038453|Zandvoort 2021, Zandvoort 2021 National|
+|Imola|1694798655|Imola 2018, Imola 2001, Imola 1972, Imola 1988|
+|Virginia18_2018|1694798757|VIR Full Course, VIR Grand Course, VIR North Course,  VIR Patriot Course, VIR South Course|
+|Guapore|1694798796|Autodromo Guapore|
+|Monaco_2019 |1737056822|Monaco E-Prix|
+|NewYorkFE_2020 |2103827662|NEW YORK E-Prix|
+|BerlinFE_2020 |2103827690|FORMULA-E|
+|RomeFE_2020|2399198882|Rome E-Prix|
+|Botniaring_2017|1553094081|Botniaring Long, Botniaring Long w/chicane, Botniaring Short|
+|Portland_2019|2141682966|Portland Full Course, Portland Sprint Course|
+|Brianza_1966|1238611586|1966 Brianza, 1966 Brianza Alternate 10k, 1966 Brianza Junior|
+|LimeRockPark_2021|1238604887|Lime Rock Park -- All Chicanes, Lime Rock Park -- No Chicanes, Lime Rock Park -- Uphill Chicane, Lime Rock Park -- West Bend Chicane|
+|MonteCarlo_1966|926662328|1966 Monte Carlo|
+|Malaysia_2007|922034184|Full Loop, North Loop, South Loop|
+|Portugal_2009|922033988|GP Layout, GT Layout|
+|Silverstone_2016|917387157|Silverstone -- Endurance, Silverstone -- GT Layout, Silverstone -- Historic Chicane Circuit, Silverstone -- International Layout, Silverstone -- National Layout|
+|Indianapolis_2020|917386941|Indianapolis -- Brickyard, Indianapolis -- Oval, Indianapolis Grand Prix, Indianapolis Grand Prix 2007, Indianapolis Road Course|
+|SpaFrancorchamps_2020|2291867462|Spa-Francorchamps, Spa-Francorchamps Endurance|
+|Circuit_dAzur_2019|1938469875|Circuit d'Azur|
+|Monza_2021|2523945382|Monza, Monza Curva Grande, Monza Junior|
+|Longford_1967|1479307545|Longford 1967|
+|3PA_Bathurst_2014|537639404|Bathurst|
+|3PA_Alabama_2015|582242822|Alabama 500|
+|3PA_Brookdale_2015|537639668|Brookdale Speedway|
+|3PA_EagleCreek_2015|595325656|Eagle Creek 400|
+|3PA_Jacksonville_2014|537639113|Jacksonville 500|
+|ISI_Joesville_2015|537640050|Joesville Runabout|
+|ISI_MountainPeakSW_2014|537636887|Mountain Peak -- Legends Oval, Mountain Peak -- Road Course, Mountain Peak -- Speedway, Mountain Peak Karting -- Long, Mountain Peak Karting -- Oval, Mountain Peak Karting -- Reverse, Mountain Peak Karting -- Short|
+|3PA_Northside_International_Raceway_2015|595328060|Northside International Raceway|
+
+
+===== Third party cars =====
+
+|BTCC_NGTC_Ford_Focus_RS|1176380339|
+|BTCC_NGTC_Mercedes_A45|1176380339|
+|BTCC_NGTC_MG6_GT|1176380339|
+|BTCC_NGTC_Vauxhall_Astra|1176380339|
+|BTCC_NGTC_Subaru_Levorg|1176380339|
+|URD GT500 HSV010GT|2370616440|
+|URD GT500 SC430|2370539183|
+|FSR2020|2018992467|
+|FVR_V8Supercars_2020_ZB|2128795453|
+|FVR_V8Supercars_2020_FM|2128795453|
+|FVR_V8Supercars_2021_ZB|2587124225|
+|FVR_V8Supercars_2021_FM|2587124225|
+|Ginetta_G60LTP1_LMP1_2019|2357782148|
+|ASMG ByKolles LMP1|2615221052|
+|Porsche_Cup_GT4_2020|2648433641|
+
+
+
+
+

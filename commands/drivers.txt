@@ -1,0 +1,35 @@
+====== drivers ======
+
+===== Purpose =====
+
+Returns a JSON containing the list of currently connected drivers and AI.
+
+===== Arguments =====
+
+None.
+
+===== Examples =====
+<code>
+apx --server servername --cmd drivers
+</code>
+
+Output:
+
+<code>
+[
+      {
+         "is_ai":True,
+         "ping":0,
+         "user_name":"Gervase Chandlor"
+      }
+   ]
+</code>
+
+
+===== Remarks =====
+
+Introduced in 1.0.0.
+
+<WRAP center round important 60%>
+The status command takes about 5 seconds to continue due a bug inside the pywinauto usage. This is an ongoing fix.
+</WRAP>

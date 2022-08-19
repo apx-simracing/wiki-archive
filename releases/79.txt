@@ -1,0 +1,90 @@
+===== Release 79, 25th september 2021  =====
+
+<WRAP center round info 60%>
+Release 79 focused on simplifing the initial setup aswell as the usage of non-expierienced users.
+
+A significant change is the option to avoid adding own VEH templates, allowing the wizard to be used for users without any knowledge about rFactor 2.
+</WRAP>
+
+<WRAP center round important 60%>
+Add the settings to your settings.py file if you are updating:
+
+See https://wiki.apx.chmr.eu/doku.php?id=setup_wizard for values
+
+USE_GLOBAL_STEAMCMD = True
+
+EASY_MODE = True
+
+ADD_PREFIX = True
+</WRAP>
+
+Download: https://github.com/apx-simracing/wizard/releases/tag/R79
+
+
+  * Add field to control if a car needs to be stopped before pressing ESC in the event config
+
+  * Add missing migration file from R78
+
+  * Fixed an issue causing timed Q sessions with 0 laps to be limited to 0 laps (now it will be set to 255)
+
+  * Added a validation on race sessions
+
+  * Added field race finish criteria to sessions
+
+  * If race finish criteria  is set, the value will be overwriting an derived value from length/laps of the R session
+
+  * Add wiki section to define the race finish criteria https://wiki.apx.chmr.eu/doku.php?id=wizard_session#timed_vs_lap_limited_sessions
+
+  * Add sorting for the track list, fixes https://github.com/apx-simracing/issues/issues/52
+
+  * Add option to enforce the driving view https://github.com/apx-simracing/issues/issues/50
+
+  * Add option to delete all chat messages and ticker messages from servers https://github.com/apx-simracing/issues/issues/51
+
+  * Add context menu option to start or stop all selected servers from the server list
+
+  * The user does not need to provide an rFm file anymore. If no file is given, a default file will be used
+ 
+  * Updated help text on the rFm field
+
+  * Fixed an issue causing the option "Remove unused workshop items" not to be visible on APX created servers
+
+  * Add global option USE_GLOBAL_STEAMCMD (True|False) to use a single steamcmd instance instead of one instance per server (see https://wiki.apx.chmr.eu/doku.php?id=global_steamcmd  for details)
+
+  * Update https://wiki.apx.chmr.eu/doku.php?id=setup_wizard for USE_GLOBAL_STEAMCMD
+
+  * The wizard will now be running in an "EASY_MODE" per default. This means the fields and settings not required to run events on official content or on content listed on https://wiki.apx.chmr.eu/doku.php?id=common_components will be hidden to make the usage of the Wizard more easy. Advanced users can simply switch to the "normal" mode by settings EASY_MODE in settings.py to False.
+ 
+  * Renamed field signup components to cars in the event screen
+
+  * If the wizard is in the easy mode, hide the button to create a server manually by hand
+
+  * Fixed an issue if the rfcmp file contains whitespaces, which was causing ModMgr installations to fail
+
+  * Fixed an issue where the layout gdb file could not be found as the mas file contained whitespaces
+
+  * Add sizing warning for https://steamcommunity.com/sharedfiles/filedetails/?id=2188673436
+
+  * Add help text for component names
+
+  * Fixed a bug that prevented to overwrite empty VEH properties
+
+  * Added field base class to entries
+
+  * Added server side VEH creation. You don't need to provide veh templates anymore unless you need to define properties there
+
+  * Updated https://wiki.apx.chmr.eu/doku.php?id=setup_screenshots
+
+  * Updated https://wiki.apx.chmr.eu/doku.php?id=setup_wizard
+
+  * On initial setup, you know see asterisks when typing a password
+
+  * Introduce setting ADD_PREFIX to control server name prefix (addition of [APX] on all server names)
+
+  * Updated https://wiki.apx.chmr.eu/doku.php?id=setup_wizard
+
+  * Updated https://wiki.apx.chmr.eu/doku.php?id=setup_screenshots to feature the correct ImageMagick path
+
+  * Updated the troubleshooting guide https://wiki.apx.chmr.eu/doku.php?id=troubleshooting#i_see_all_layouts_within_the_server_but_i_only_need_one
+
+  * Add information about what to do if the own liveries are using the wrong veh file as a base: https://wiki.apx.chmr.eu/doku.php?id=troubleshooting#my_custom_skins_are_based_on_the_wrong_car

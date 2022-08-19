@@ -1,0 +1,62 @@
+===== Release 74, 29th August 2021 =====
+
+<WRAP center round info 60%>
+Release 74 focused on usability in common usage scenarios and bug fixes. 
+
+Also, I fixed some issues within the common components.
+</WRAP>
+
+
+Download: https://github.com/apx-simracing/wizard/releases/tag/R74
+
+  * Fixed the layout list for Zandvoort_2017: Only available layout is now Zandvoort GP (was accidentally Zandvoort 2020 GP Layout)
+
+  * If you are running an existing wizard version, you need to correct the track with the name "Zandvoort 2020 GP Layout@Zandvoort_2017" accordingly
+
+  * Newly installed instances will apply these change on installation
+
+  * Added a warning if the layout is wrong, see details on https://wiki.apx.chmr.eu/doku.php?id=troubleshooting#grip_is_not_used
+
+  * Fixed an issue causing instances not to be updatable to R73
+
+  * Fixed an issue when using alphanumeric numbers instead of numeric numbers
+
+  * Added an experimental feature to the event to include stock skins from the component the update is build onto
+
+  * Add option to write texts into the server based on a schedule
+
+  * Add option to only apply a schedule if server is in practice mode
+
+  * Extended troubleshooting guide https://wiki.apx.chmr.eu/doku.php?id=troubleshooting
+
+  * Updated https://wiki.apx.chmr.eu/doku.php?id=setup_screenshots to feature the correct login URL
+
+  * I extended the troubleshooting guide https://wiki.apx.chmr.eu/doku.php?id=troubleshooting
+
+  * Added guide for stuck server deployments https://wiki.apx.chmr.eu/doku.php?id=resolve_stuck_server_installations
+
+  * The Dallara DW12 2014 is now included in the common component list
+
+  * Fixed an issue causing /signature endpoint to return a internal server error
+
+  * Added filelist to /signature
+
+  * /signature will now return the files if a mod is installed with VERSION_SUFFIX
+
+  * add /download to get a tar.gz file of the modpack to use as a tar.gz file
+
+  * when the server is started, it will generate a tar.gz file with own liveries and track additions which are required for the client to use. The file will be always overwritten
+
+  * When looking for GDB infos for Grip and Weather injection, the deployment will now also look on the properties EventName and VenueName to identify the track
+
+  * The grip needle can now be regex
+
+  * Add validation in case the up  * and downstreamsettings are equal to 0 kbit/s
+
+  * Updated the troubleshooting guide: https://wiki.apx.chmr.eu/doku.php?id=troubleshooting
+
+  * Add article https://wiki.apx.chmr.eu/doku.php?id=what_is_apx_and_what_not
+
+  * Added a redirect to /admin if no proper URL's are given
+
+  * Update descriptive text on the event

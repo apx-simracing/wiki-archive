@@ -1,0 +1,32 @@
+====== How to install updates ======
+
+
+===== Files to keep =====
+
+You don't want to overwrite following files (they should not be included in the releases, but just to make sure). Create a backup of these files:
+
+  * db.sqlite3 (if you are using sqlite)
+  * uploads/
+  * packs/
+  * server_children/
+  * wizard/settings.py
+
+<WRAP center round info 60%>
+Read the changelog to identify new values for your settings.py
+</WRAP>
+
+===== Apply wizard update =====
+
+1. Grab the release zipfile from https://github.com/apx-simracing/wizard/releases
+
+2. Disable cronjobs using the action menu
+
+3. Stop the wizard.bat with CTRL+C key combination
+
+4. Replace the old files with the new ones
+
+5. Run applyupdates.bat
+
+6. Restart your wizard.bat
+
+7. Select the APX created servers and select "Update reciever update" from the action menu

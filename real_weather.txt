@@ -1,0 +1,54 @@
+====== Real weather ======
+
+The wizard allows to inject future forecasts into the game. You will need an OpenWeatherAPI key to use this feature. The key must be set inside the settings.py file (see OPENWEATHERAPI_KEY, [[setup_wizard|The wizard]]).
+
+If real weather is configured, the data will be updated on start of the server.
+
+===== Constraints to use =====
+
+  * The server must use defined sessions with a defined start time
+  * Real weather must be enabled in the event
+  * The session must have the track configured
+  * The track needs to have a valid set of coordinates (you can add them in the track section of the wizard)
+  * The session start must be in the future seen from deployment/ start time
+  * There is only one data point per hour to switch weather
+
+<WRAP center round info 60%>
+To ignore real weather, set the according flag in the event configuration.
+</WRAP>
+
+<WRAP center round info 60%>
+On deployment, the live data will be synced. To keep this data, uncheck the "Update weather on start" on the server properties.
+</WRAP>
+===== Remarks towards session start times =====
+
+
+The weather API provides a set of a 48h forecast. Past weather calculation is not planned.
+
+Because of this, you cannot use a start date from the past. If the session start is in the past, the next day will be used.
+
+<WRAP center round tip 60%>
+If this causes an issue for you, you can consider used a local coordinate with suitable session start times.
+</WRAP>
+
+
+==== Example ====
+
+  - You are planning an event to have a session start time of 2PM
+  - It is already 2:15 PM (localtime)
+  - The forecast of the following day will be used with a suitable time compared to the session start time
+
+==== Forecast screen ====
+
+The APX wizard offers a public weather forecast page, displaying the needed values for participants.
+
+
+{{::apx_weather.png|}}
+
+You can access the forecast page on //yourwizardurl/weather/<publicsecretfromserversettings>//. If you attach //?secret=<secretfromserversettings>// to the url, you can also see actual weather changes instead of probabilities.
+
+
+=== Customization ===
+
+The template for this is //forecast.html//, it uses the t//iming-baseline.css// file.
+

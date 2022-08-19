@@ -1,0 +1,46 @@
+====== Feature matrix======
+
+Feature matrix for CLI and Wizard application. Both components are supported and target is a 100% support for all use cases for both components. An absence of a feature does not mean it will be not implemented at a later point. <del>Feature name</del> means that the feature dropped as it's to complicated to implement
+
+
+
+^Feature ^ Wizard (web application) ^
+|Custom liveries as RFCMP updates | ✅|
+|Custom track updates as RFCMP updates | ✅|
+|Lifecycle management (start, stop, update)| ✅ |
+|Adding numberplates | ✅ |
+|Weather | ✅ (experimental)|
+|Grip | ✅|
+|Multiple tracks per event | ✅ (experimental) |
+|Plugin injection into server | ✅ |
+|Chatting |✅ | 
+|Filename rename and grouping (keeps file structure correct) | ✅|
+|Filename duplicate prevention |✅|
+|persistent Edit history | ✅|
+|persistent chat history | ✅|
+|Update content on deploy |✅  |
+|Update server on deploy |✅  |
+|Set server update branch |✅  |
+|Configurable deploy workflow  | ✅*5|
+|Non workshop item support  | ✅*5 |
+|Custom player.json and multiplayer.json  | ✅|
+|Session switching | ✅*1|
+|Kicking |✅*1   |
+|Keys download & upload    | ✅|
+|<del>Client ping in status</del>   | ❌*2 |
+|<del>RFCMP livery packs download throught reciever</del>  | ❌*3 |
+|<del>Profile name change support</del> | ❌|
+|<del>Different liveries for different rfcmp versions</del>  | ❌*4|
+
+
+===== Footnotes: =====
+
+*1 it's implemented, but relies on pywinauto. It's topic for further changes.
+
+*2 the server endpoint does not expose this (yet).
+
+*3 not //really// targeted for implementation. Will be added if needed for another feature. Would require a client for it, which is not really planned as it would be A LOT of work.
+
+*4 the wizard currently groups the files per component, but not per version
+
+*5 Supported by the reciever, but no control interface, see https://wiki.apx.chmr.eu/doku.php?id=file_based_content

@@ -1,0 +1,273 @@
+===== Release 80, next release=====
+
+<WRAP center round info 60%>
+This release focused on supporting more content and get rid of production usage issues.
+Also this release added support for multiple tracks per event.
+</WRAP>
+
+<WRAP center round important 60%>
+You need to update all recievers used to release 80. Otherwise they will stop working. Follow step 7 in the update guide for that https://wiki.apx.chmr.eu/doku.php?id=install_updates
+</WRAP>
+
+<WRAP center round important 60%>
+You need to add the new MSG_LOGO, WINE_DRIVE, WINE_IMPLEMENTATION and ALLOW_SPEEDTEST values to your settings.py. You can find the default value inside of settings.py.tpl
+</WRAP>
+
+<WRAP center round important 60%>
+Delete ALL cronjobs before continuing. You will have to redo them.
+</WRAP>
+
+<WRAP center round important 60%>
+If you installed the Weather plugin by hand, please remove these from your events. Otherwise this might conflict with the now-available setup for the real weather.
+</WRAP>
+
+====== Previews ======
+
+This release has some previews to be tested before R80 itself is released. The previews are numbered R80p<previewnumber>.
+
+|Preview|Link|
+|R80p1|revoked, failed testing|
+|R80p2|revoked, failed testing (weather)|
+|R80p3|revoked (broken packaging, broken scheduler)|
+|R80p4|https://github.com/apx-simracing/wizard/releases/tag/R80p4|
+|R80p5|https://github.com/apx-simracing/wizard/releases/tag/R80p5|
+|R80p6|revoked, broken download link|
+|R80p7|https://github.com/apx-simracing/wizard/releases/tag/R80p7|
+|R80p8|https://github.com/apx-simracing/wizard/releases/tag/R80p8|
+
+====== Changelog ======
+
+
+  * Fixed an issue causing the server install to fail on installation with a parent folder with a whitespace
+
+  * Fixed an issue that APX commands do not work if the path contains a whitespace
+
+  * Added a workaround remark if you have a python on your system installed: https://wiki.apx.chmr.eu/doku.php?id=troubleshooting#environment_with_global_python
+
+  * Update default reciever port range to start at TCP 5000 instead of 1026
+
+  * Added timeout to database connection in an attempt to avoid the database is locked error.
+
+  * Update https://wiki.apx.chmr.eu/doku.php?id=install_updates
+
+  * Sort the server list per default based on the name column
+
+  * Sort the event list per default based on the name column
+
+  * Changed the way cars and tracks displayed to a widget with search features
+
+  * Display mod name, version and event_mod_version independend of the EASY mode
+
+  * To define layouts, you can now use all of this values from the GDB file: "TrackNameShort", "TrackName", "EventName", "VenueName" (EventName should be the one to display in the game)
+
+  * Changed the way the mod will be packed. Now, APX will check all of the mentioned fields and if a match is done, the value from EventName will be used
+
+  * Add support for multiple tracks per event (please note: There is no chance to sort tracks somehow as the game does not support that in the way needed, sorry!)
+
+  * Updated https://wiki.apx.chmr.eu/doku.php?id=feature_matrix
+
+  * Closed https://github.com/apx-simracing/issues/issues/48
+
+  * Closed https://github.com/apx-simracing/issues/issues/10
+
+  * Add flag heartbeat only in the server settings to control if hooks should send information to the wizard. This will default to be enabled as the hook data collection serves no purpose at the moment, but needs no removal (this also get's some load away from the wizard instances). This setting is of course hidden in the easy mode
+
+  * The command python manage.py import can now use the component name or the steam id besides the short name to identify the wanted component
+
+  * Updated https://wiki.apx.chmr.eu/doku.php?id=import accordingly
+
+  * Fixed an issue causing removed veh templates not to be removed from disk when using an own VEH template in the component properties
+
+  * The wizard will now utilize Windows schtasks utility
+
+  * Removed any CRON_XY setting from settings.py 
+
+  * Updated https://wiki.apx.chmr.eu/doku.php?id=setup_wizard
+
+  * Removed cron text field from server schedules
+
+  * Added start and end time field to server schedules
+
+  * Added minute repeat field to cronjob
+
+  * Added options to disable a server schedule without deleting it
+
+  * Removed old cron module
+
+  * Updated https://wiki.apx.chmr.eu/doku.php?id=scheduler
+
+  * Updated install updates guide https://wiki.apx.chmr.eu/doku.php?id=install_updates
+
+  * Added action to disable, enable or run selected server schedule entries
+
+  * Updated common component list: https://wiki.apx.chmr.eu/doku.php?id=common_components (these updates will be included in new installations)
+
+  * Added tracks Alabama 500, Brookdale Speedway, Eagle Creek 400,  Jacksonville 500, Joesville Runabout, Mountain Peak – Legends Oval, Mountain Peak – Road Course, Mountain Peak – Speedway, Mountain Peak Karting – Long, Mountain Peak Karting – Oval, Mountain Peak Karting – Reverse, Mountain Peak Karting – Short,     Northside International Raceway
+
+  * Fixed an issue causing tracks without a ShortName in the GDB to not deploy (seems to affect some of the recently added tracks)
+
+  * Added Ginetta G60-LT-P1 LMP1 and ENSO CLM P1/01 ByKolles LMP1 to the common component list
+
+  * Added support for alternative plugin file paths
+
+  * If "plugin path" is empty, the file will be placed in /Bin64/Plugins
+
+  * If a path is given, the file will be placed there (the path will be created if needed). This can especially used if your plugin requires something additional to be placed inside the server
+
+  * Updated https://wiki.apx.chmr.eu/doku.php?id=commands:plugins
+
+  * This feature can be for example used if you have to drop files in the server of any kind.
+
+  * Please not that the overwrites for the CustomPluginVariables.JSON file are only updated for file with the .DLL extension.
+
+  * Hide the component field on tracks if EASY_MODE is enabled
+
+ Fixed an issue causing the reciever not to publish deployment updates
+  * Fixed an issue causing the mod build to fail if the layout name was not found
+
+  * Track files can now be mas files.The mas file will be unpacked an included in an APX-packaged update for the track. Please note that 
+identical filenames within track files and the mas file (inside track files) can cause issues. 
+
+  * Added base component field to the component section. This is designed for the situation you want to use a workshop based package which requires another mod. E. g. Liveries for Paid DLC content. The "on top" mod is then the mod you are using within your events. This should fix https://github.com/apx-simracing/issues/issues/3
+
+  * The log will be cleared before a new deployment is attempted
+
+  * Fixed an issue causing the onStart hook not to fire
+
+  * Added statistics ping towards ping.apx.chmr.eu (privacy remark: I'm logging no IP/ server information. I just get info "a server started", "a server was stopped" or "a server was deployed". 
+
+  * The https://wiki.apx.chmr.eu/doku.php?id=commands:build_skins command now does not alter the names as the wizard already alters the names
+
+  * Added alternative display name to components to make working with same mods with different updates easier.
+
+  * Added field component files to components to contain a zipfile which will be unpacked for the component (e. g. to use brand_logo.png etc): This fixes https://github.com/apx-simracing/issues/issues/8
+
+  * Added support for WINDSHIELDIN
+
+  * Fixed an issue causing the import to fail when a steam id is given
+
+  * Fixed an issue causing the import to import a DDS file without an extension
+
+  * Fixed an issue to cause base mod installation to fail for tracks 
+
+  * Added support for xyEXTRA4.dds - xyEXTRA5.dds
+
+  * R80 will get rid of the separation between the separation of entry and entry file
+
+  * "entries" will be renamed to "liveries" (current working draft seen in screenshot, most likely not final)
+
+  * Added data enrichment for the start message via discord webhooks. The required content will no be displayed and linked.
+
+  * Added message when a server  is updated (the detail infos are displayed when the server runs)
+
+  * Added MSG_LOGO to settings.py to control the logo used by the webhook
+
+  * Deprecated the message strings (MSG_XY) in favor of the preconfigured discord embeds
+
+  * Removed failure webhook messages to avoid polluting the update channels (the errors will be still listed within APX, of course)
+
+  * Updated https://wiki.apx.chmr.eu/doku.php?id=setup_wizard
+
+  * Fixed an issue causing liveries for the same base mod to be builded into different mas files
+
+  * Removed context action "reset status (if stuck)" as it's not needed anymore
+
+  * If the deployment fails with an hard exception, the message will now be displayed in the state field of the server (previously it was the request command, which did not help at all. Now it is the actual result)
+
+  * Server status and state will be cleared when the wizard restarts
+
+  * Changed the way status and state values are stored  (they required previously to save the server entry, now this values are completely in the memory to prevent database locked issues)
+
+  * Add field "discord url" to a server to allow using separate webhooks per server instance (e. g. to post into different channels) 
+
+  * If Start or stop is set as an action, the state field will now be showing "start requested" or "stop requested" to make the pending action more transparent
+
+  * Increased the amount of tries to collect the keys to 10
+
+  * Fixed an issue causing the keys not to collect properly
+
+  * On setup, give the server a chance to bootup within 10 instead of 2 seconds
+
+  * Fixed an error causing ValidationError not to be found on import
+
+  * Fixed an error on the import when the component name is used
+
+  * The import will now not fail anymore if a not recognized file or folder is given. The files will be printed as information
+
+  * The import will now not call an exception anymore  if the "Is this okay?" question will be answered with "no"/ "n"
+
+  * Add option to delete old entries/ files before the import (which are using the same component)
+
+  * The weather will not use the static weather anymore. Instead of this, the weather tool by Stefan_L_01 will be used. https://forum.studio-397.com/index.php?threads/weatherplugin.58614/
+
+  * Real weather will be enabled per event (keep your API limits in mind)
+
+  * Configuration, as such as the UID, will be done automatically (user only needs to add the key and the provider)
+
+  * Each server gets a separate Weatherclient instance, the download will be done by APX 
+
+  * When a server will be started and real weather is requested, the client will be started aswell (same for stopping)
+
+  * Fixed an issue when multiple tracks from the same mod couldn't be included an the server
+
+  * Fixed an issue causing the event selection in a server becomes unavailable permanently
+
+  * Fixed an issue causing a cronjob not getting the cronjob lockfile to remove the lockfile on aborting
+
+  * Changed the way cron jobs are firing changes. Cron job windows will remain open during cron job execution (instead of closing instantly)
+
+  * Changed the path structure planned tasks using schtasks to use start 
+
+  * Chunk embeds for the discord webhooks when more than 5 embeds are present
+
+  * Add article https://wiki.apx.chmr.eu/doku.php?id=force_builds
+
+  * Add option "Update config and redeploy, force content re-installation" to the server
+
+  * The option "Update config and redeploy" will now fail if the source content (rfcmp, own liveries) did not change (see article for details), aborting the deployment 
+
+  * Update https://wiki.apx.chmr.eu/doku.php?id=tutorials#update_the_server to feature the new article
+
+  * Enable experimental feature to include stock skins on a event
+
+  * Don't ignore stock skins if a skin is present for multiple components 
+
+  * Fixed wrong numbering for key collect on initial setup
+
+  * Add reciever feature to identify mod structures (e. g. to find mods where you have to use a certain version for updating)
+
+  * Add option "force versions" to event configuration
+
+  * Added https://wiki.apx.chmr.eu/doku.php?id=force_versions for more information
+
+  * Added setting ALLOW_SPEEDTEST to the settings.py https://wiki.apx.chmr.eu/doku.php?id=network_speed
+
+  * Added question to enable speedtest on initial startup to setup process (defaults to yes, but due to GDPR you can disable that completely)
+
+  * If ALLOW_SPEEDTEST is enabled and you add upstream/ downstream = 0, the values from the speedtest will be added (please not that the values are not calculated in any way in case you have other servers running on the same connection)
+
+  * This replaces the previously displayed error messages 
+
+  * Remove mentioning of the manual reciever setup from https://wiki.apx.chmr.eu/doku.php?id=setup_screenshots to avoid confusion
+
+  * Hide option "update weather on start" as it serves no purpose at the moment (it's for the scripted weather, not the real weather)
+
+  * Hide lon/lat/sections from tracks as these features are not used and not documented at the moment
+
+  * Added action to start a server update from the server list (will use the configured event per server)
+
+  * Removed action "update weather forecast" as it serves no purpose anymore
+
+  * Added an action to do a steam update only without touching the content (will use the configured branch per server)
+
+  * Fixed an issue causing the reciever to do insufficient API key checking
+
+  * Add base Linux support (you will still need to add the wine settings anyways)
+
+  * Add options to prevent discord messages for servers on update/start/stop
+
+  * Add Parc Ferme guide https://wiki.apx.chmr.eu/doku.php?id=parc_ferme
+
+  * Fix issues causing the Parc Ferme settings not to be used
+
+  * Updated dependencies for reciever and wizard component

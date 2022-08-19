@@ -1,0 +1,36 @@
+====== What is APX? And what not? ======
+
+APX tries to make the rFactor 2 server usable for anyone without the requirement for technical knowledge. You don't have to deal with steamcmd, files etc. APX will take care of that.
+
+To archieve this, APX offers following settings to be edited within the web app (the "wizard"):
+
+  * Servers - The server instances itself
+  * Events - An combination of track sessions, cars and tracks to be used within servers
+  * Sessions - A definition for a practice/warmup/qualy/race session
+  * Ticker messages - Used for livetiming purposes
+  * Components - A technical term for the "container" offering tracks and cars in rFactor 2
+  * Track - The definition of an layout
+  * Entries - An entry is e. g. a team, with a number which is using a car, which is based out of a component
+  * Track files & entry files: Files either attached to to an track or an entry
+  * Messages - Messages to write on a server
+  * Plugins - Plugins to insert into a server
+
+====== Core concept ======
+
+APX has [[limitations|limitations]], but follows a set of core concepts:
+
+  * Everything is temporary. Server instances and their contents can be replaced at any point
+  * Updates are build on the fly, required files are either sourced from the track or entry files
+  * The user does not interact with the rFactor 2 instance directly
+  * Anything required will managed from the web UI
+
+====== Skins ======
+
+Skins are build the same way all time:
+
+  - The files belonging to the wanted paritipants will be collected and uploaded to the server (you don't need to deal with filenames, APX will take care of that
+  - The mod will be installed
+  - The livery files will be included in a MAS container and a new update rfcmp will be build
+  - The rfcmp will be installed
+
+APX might not support all constellations required to be used within an event. This is not the goal of the project, so it will always attempt a latest install for the components.

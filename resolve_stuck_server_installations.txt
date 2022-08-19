@@ -1,0 +1,13 @@
+====== Resolve stuck server installations ======
+
+
+If your server keeps to be stuck inside "downloading reciever release" or "doing reciever bootstrap", you can delete the entry and add a new server. From failures at download and bootstrap there is no recovery.
+
+The safest path is currently to exit the wizard (using CONTROL + C in the terminal), start it again, delete the server and start again.
+
+====== "The server was not processed yet" ======
+
+  - Deselect action and event
+  - Save the server
+  - If the reciever for this server runs, the key file should be collected now
+  - Refresh the page, if the key field is filled, you can continue as usual.

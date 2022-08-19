@@ -1,0 +1,21 @@
+====== Force versions ======
+
+This options are controlling how events use the mod versions. Possible values explained below.
+
+===== Use the versions as user provided: If more than 1 version, use latest even version if updates are needed and the latest if not. =====
+
+This is the default value. If a mod will be used for an update (track update or own liveries build by APX), it will try to use the latest even version (e. g. "1.20") instead of a possible latest uneven version ("e. g. 1.21").
+
+If no liveries or updates are planned. It will use the latest version. This case also applies when only one version is available.
+
+This option requires that the components inside APX have the "is official" checkbox set.
+
+===== Try to guess versions: If base mod is encrypted, use this version for updates, else use the latest version. =====
+
+This works similiar as the first option, but try to identify structure and encryption by itself. If there are two versions, the first one encrypted and the second one not, it will be considered official content. 
+
+For updates, it will use the same versioning scheme as the first option.
+
+===== Same as second option, but use the scheme also for mods without an encrypted base mod =====
+
+Similar to the second option, but also mods with an unencrypted base mod will be handled in the same way as such with an encrypted base mod.

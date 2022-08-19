@@ -1,0 +1,7 @@
+====== Welcome messages ======
+
+
+Inside the event configuration, you can manage welcome messages.
+
+  * Each line of the welcome manages is not allowed to exceed the amount of 50 characters.
+  * You can add the variable {driver_name} to insert the driver name

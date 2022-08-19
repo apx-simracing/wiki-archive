@@ -1,0 +1,8 @@
+====== APX License ======
+
+
+CLI: https://github.com/apx-simracing/cli/blob/main/LICENSE
+
+Wizard: https://github.com/apx-simracing/wizard/blob/main/LICENSE
+
+Reciever: https://github.com/apx-simracing/reciever/blob/main/LICENSE

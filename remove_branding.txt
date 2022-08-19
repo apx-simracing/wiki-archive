@@ -1,0 +1,9 @@
+====== Remove Branding ======
+
+Per default, APX will deploy servers with the name "[APX] {yourname}". This is done do publicly show the usage of APX to reach more users as it's otherwise quite hart to reach people.
+
+If you want to disable it, open //wizard/webgui/models.py// and set //ADDPREFIX// to //False//. 
+
+You will have to restart the wizard instance (if it's not in DEBUG mode) and redeploy all affected servers after changing the setting.
+
+If you want to show that your servers are using APX, you can additionally use one of the prepared logos form the [[support|support]] article.

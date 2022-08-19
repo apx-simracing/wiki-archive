@@ -1,0 +1,6 @@
+====== Server disabled in wizard ======
+
+
+If the wizard app fails to communicate with a reciever instance, it will increase the value of "Status failures". If this value reaches the value of [[https://wiki.apx.chmr.eu/doku.php?id=setup_wizard|FAILURE_THRESHOLD (configured in settings.py)]], the server will be ignored. This prevents that a server will be pinged endless times, wasting CPU and network resources.
+
+The value will be reset each time you save a server.

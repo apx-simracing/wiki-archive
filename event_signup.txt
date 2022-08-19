@@ -1,0 +1,63 @@
+====== Requirements ======
+
+This feature requires that the wizard instance has [[setup_wizard|ENTRY_SIGNUP_ENABLED set to True.]]
+
+====== How to create race events with APX ======
+
+If you want to create a league event with liveries, follow following steps. If you don't do liveries, following steps are not needed as the liveries are already in the mod.
+
+<WRAP center round important 60%>
+Consider using date formatters (such as %d%m%Y to get 30072021) in the form fields "Mod version" and "Event mod version". This prevents conflicts as same versions on different update runs cause conflicts as they have different internal id's.
+</WRAP>
+
+  - Create an event and enable //Signup active//
+  - Add a track
+  - Add signup components (it's bascially the list of available vehicles for the signup form)
+  - Configure your options
+  - Save the event
+
+<WRAP center round important 60%>
+Teams must signup per event as long as you won't add them by hand to the next event.
+</WRAP>
+
+
+As the next step, note the ID of the event you are running:
+
+{{:id.png?nolink&400|}}
+
+The signup URL will be <yourwizardaddress/signup/<theidoftheevent>:
+
+{{::signup.png?nolink&600|}}
+
+Teams will be able to sign up using this form.
+
+====== Team Signup: <yourwizardaddress>/signup/<theidoftheevent> ======
+
+After signup, a team will get a confirmation with a token. This token is important: It is the password to upload liveries and/ or to revoke the entry.
+
+{{::signup_confirm.png?nolink&500|}}
+
+====== Livery upload: <wizardaddress>/entry======
+
+Teams can upload liveries by themself using <wizardaddress>/entry. To upload liveries, they need the token again. The upload consist out of a single zip file, containing the fiels without any subdirectories.
+
+
+The files will be uploaded, renamed and due the fact that the entry is bound to the event the files will be included on each update run you do with that event.
+
+After submission, the user will get a confirmation screen showing the processed files.
+
+{{:submitted_files.png?nolink&500|}}
+
+<WRAP center round info 60%>
+The files will be included in the next run, no auto update is enforced.
+</WRAP>
+
+
+====== Revoke team entry: <wizardaddress>/revoke ======
+
+If a team needs to revoke an entry, they can use the address <wizardaddress>/revoke/. For the revoke, they will need the token generated for them.
+
+{{::revoked.png?nolink&500|}}
+
+Files uploaded by the user will be deleted.
+

@@ -1,0 +1,29 @@
+====== deploy ======
+
+===== Purpose =====
+Deploys the server with a given JSON and RFM file. The server will be updated and cleared from artefacts (such as replays).
+==== Workflow ====
+
+  - Removal of all mods in Manifests/ Installed/ Packages/ and log files
+  - Restoring of default installed mods and Manifests
+  - rFactor 2 server updated using steamcmd
+  - Installation of vehicle mods, building of rfcmps (using the results of [[commands:build_skins]])
+  - Installation of trackmod
+  - Building of rfmod
+
+===== Arguments =====
+  * JSON event configuration
+  * RFM file
+===== Examples =====
+<code>
+apx.py --server servername --cmd deploy --args configs/foo.json configs/default.rfm
+</code>
+===== Remarks =====
+
+Introduced in version 1.0.0.
+<WRAP center round alert 60%>
+If you plan to deploy custom skins, run the [[build_skins]] command first. Otherwise, this command will fail.
+</WRAP>
+<WRAP center round alert 60%>
+If the reciever reports the message "requires unknown base mod to be installed", consider to check the server keys, as they may invalidate after some time.
+</WRAP>

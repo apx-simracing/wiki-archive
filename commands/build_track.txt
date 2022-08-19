@@ -1,0 +1,24 @@
+====== build_track ======
+
+===== Purpose =====
+
+This command builds an intermediate track update pack to be uploaded on the server. The command utilizes the [[:setup|directory structure]] configured in the [[:servers.json]] file.
+
+
+===== Arguments =====
+
+The command recieves the component to be uploaded as the first argument, followed by the list of files to be included. The filenames are relative within the component folder.
+
+===== Examples =====
+
+<code>
+apx.py --server servername --cmd build_track --args <component> <file1..filen>
+</code>
+
+===== Remarks =====
+
+Introduced in version 1.0.0
+
+<WRAP center round info 60%>
+build_track will only do something if you configure and update to be build. See [[:event configuration]] for more details.
+</WRAP>

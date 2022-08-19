@@ -1,0 +1,19 @@
+====== Limitations ======
+  * APX works on top of pywinauto to interact with a running server. This is flaky and an open to-do
+  * The build process is large and not verbose enough
+  * Not every use case will be covered
+
+===== What actions rely on the GUI? =====
+
+  * Ban/ Kicking of clients
+  * Adding bots
+  * All votes
+
+===== Mixing of default and own liveries for a component =====
+
+This is currently not supported. If an component requires  liveries, decided if you run default or custom liveries. But no mix-ups.
+
+
+===== Why do I need several servers instead of profiles =====
+
+APX follows the approach to isolate each deployment/ event from others. This prevents the servers from suffer from broken mods b/c of old artefacts.

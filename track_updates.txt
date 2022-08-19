@@ -1,0 +1,21 @@
+====== Track updates ======
+
+Similar to vehicles, you can add files to tracks. For this, the menu point "track files" is available.
+
+A set of track files always refers to a component (which contains the track informations). In the background, the feature uses the [[commands:build_track|build_track]] command. There is no filtering, so make sure you include only the files you _really_ want do be included.
+
+<WRAP center round info 60%>
+APX does not do versioning on files. If you upload the same file for the same track multiple times, the file will be overwritten.
+</WRAP>
+
+
+On build, any referred file from the wizard will be uploaded to the server and included in the build. If the parent component (of the track) has the flag "do update" not enabled, the feature will be disabled.
+
+{{::trackfile.png|}}
+
+====== Why can I not directly use a given rfcmp file? ======
+
+APX follows the concept to build everything by itself. Providing fixed files has several disadvantages. Firstly , the files need to be uploaded and used somewhere. Handling large file uploads is difficult in web applications and takes much resources. 
+
+The other point is what to do if the provided rfcmp file relies on a version which was killed due to an update. Then the user must provide an updated file each time the base mod gets updated. This causes more effort to do for the user. Otherwise this causes "xy requires unknown base mod to be installed" errors.
+

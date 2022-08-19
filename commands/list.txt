@@ -1,0 +1,28 @@
+====== list ======
+
+===== Purpose =====
+
+Lists the currently configured servers from the [[servers.json]] file.
+
+===== Arguments =====
+
+None
+
+===== Examples =====
+
+<code>
+apx.py --server servername --cmd list
+</code>
+Output:
+<code>
+servername => http://localhost:5000/
+</code>
+
+===== Remarks =====
+
+Introduced in version 1.0.0
+
+<WRAP center round alert 60%>
+The parameter --server is still needed due to a command line parser issue, but serves no purpose here.
+</WRAP>
+

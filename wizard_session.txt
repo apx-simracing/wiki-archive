@@ -1,0 +1,89 @@
+====== Configure sessions in wizard ======
+
+===== Race conditions/ Race Weekend =====
+
+Race conditions (or now race weekends) are a set of sessions which consist out of a practice session, a warmup session, a qualifying and a race.
+
+If a race condition entry has no sessions, the defaults from the track will be used.
+
+You will need to upload an rfm file. Take a look at the provided "default.rfm" in the wizard folder. You can use that file if you want for it.
+
+<WRAP center round important 60%>
+We need the rfm file as the file has a not really parseable syntax. Sorry!
+</WRAP>
+
+
+===== Timed vs lap limited sessions =====
+
+If you set a qualyfying session to be 15 minutes long without having laps set, APX will set the maximum amount of laps to the ingame limit of 255.
+
+For practice sessions, the value set for laps will be ignored. Practice session will always be timed.
+
+Warmup and practice sessions cannot have a limit of laps to be set.
+
+If a race session has race finish criteria not set, it will use "laps" if laps are greater 0. You can explicitly set it using the race finish criteria field in the session options. Obviously, you cannot set a race finish criteria when editing a non-race session.
+
+
+
+===== Race sessions =====
+
+
+
+The wizard allows you to configure sessions with a certain lenght. The start field is the in-game session start time.
+Addtionally, you can configure the grip situation in the view. Please note that the field grip and grip needle exclude each other.
+<WRAP center round important 60%>
+The file name identification with the grip needle field only works if the GDB file and the RRBIN file(s) are included in the same mas file.
+</WRAP>
+
+
+If grip needle is set and a file with a suitable file name is found, the provided file of the grip field will be ignored.
+Grip needle can be either the full file name (upper-lowercase does not matter) or a part of it. Examples:
+If the provided file name is "SATURATED.RRBIN", "saturated", "saturated" or "SATURATED" will match the file.
+
+You can also add the value "autosave" to use an existing :!: autosave file.
+
+===== Grip needle examples =====
+
+
+|Pattern|Description|
+|fooo|Use a file matching foo from the track mas file. Can match "foo.rrbin", "FOO.rrbin" or "FoO.rrbin" aswell.|
+|heavy%%|%%saturated%%|%%autosave|Match either heavy.rrbin or saturated.rrbin. If saturated.rrbin is the last match, use it. The preset will not only used, but will be stored as future autosave.rrbin. If the AutoSave.rrbin is existing, it won't bne overwritten|
+|saturated%%|%%heavy%%|%%autosave|Match either saturated.rrbin or heavy.rrbin. If heavy.rrbin is the last match, use it. The preset will not only used, but will be stored as future autosave.rrbin. If the AutoSave.rrbin is existing, it won't bne overwritten|
+|saturated%%|%%heavy|Match either saturated.rrbin or heavy.rrbin. If heavy.rrbin is the last match, use it. The preset will be used instead of an autosave|
+|autosave|Use the existing autosave.rrbin file|
+
+{{::session.png?nolink&800|}}
+
+
+**For advanced users:** The grip needle can be a regular expression. For example, "heavy|saturated", will match both heavy and saturated. Keep in mind that the last match will be actually used, in the example SATURATED.rrbin. The regex is applied on a lowercase transformed filename.
+
+<code>
+Aug 28 17:47:43 deploy.py:402 INFO [117148]: Session P1 will use preset grip file HEAVY.RRBIN, matched by regex heavy|saturated
+Aug 28 17:47:43 deploy.py:402 INFO [117148]: Session P1 will use preset grip file SATURATED.RRBIN, matched by regex heavy|saturated
+</code>
+
+
+===== Where do I get these names from? =====
+
+As the file names might differ from track to track, APX will write a log message with the names into the logfile (example is S397 Sebring):
+
+<WRAP center round info 60%>
+This will only be done if you have sessions configured!
+</WRAP>
+
+
+<code>
+Aug 15 11:17:29 deploy.py:955 INFO [74348]: We managed to extract following grip files from the MAS file layout12h.mas: HEAVY.RRBIN,LIGHT.RRBIN,MEDIUM.RRBIN,SATURATED.RRBIN
+
+Aug 15 11:17:29 deploy.py:955 INFO [74348]: We managed to extract following grip files from the MAS file layoutFull.mas: HEAVY.RRBIN,LIGHT.RRBIN,MEDIUM.RRBIN,SATURATED.RRBIN
+
+
+Aug 15 11:17:29 deploy.py:955 INFO [74348]: We managed to extract following grip files from the MAS file layoutJohnsonClub.mas: HEAVY.RRBIN,LIGHT.RRBIN,MEDIUM.RRBIN,SATURATED.RRBIN
+
+Aug 15 11:17:29 deploy.py:955 INFO [74348]: We managed to extract following grip files from the MAS file layoutSchool.mas: HEAVY.RRBIN,LIGHT.RRBIN,MEDIUM.RRBIN,SATURATED.RRBIN
+
+</code>
+
+
+
+

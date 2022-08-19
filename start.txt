@@ -1,0 +1,36 @@
+====== Welcome to APX ======
+
+<WRAP center round alert 60%>
+The project is halted. See https://forum.studio-397.com/index.php?threads/apx-rf2-server-made-easy.67628/page-2#post-1082379 for details.
+</WRAP>
+
+
+<WRAP center round tip 90%>
+APX will require some steps to set up, but after then, you only have to deal with your event configs and cli client. Read the [[disclaimer]].
+</WRAP>
+
+
+
+[[APX]] is a toolkit to manage rFactor 2 servers. Imagine it as a wrapper around the rFactor 2 server, doing all the work for the league admin. 
+
+The toolkit allows running reproducible builds, e.g. in case you want to add a skin to a server. The building/ updating is done via a single command, so you can grab a coffee instead of having to click throught multiple tools on the server. With having reproducible builds, it eradicates the factor of human-made mistakes between server update runs.
+
+In conclusion, APX targets are following
+
+  * Automate as much element of server maintenance
+  * Automate the complete livery creation process
+  * Allow auto-addition of car numbers on liveries
+  * Add an high level HTTP API to the server
+  * Control **everything** of a server deployment(from [[event_signup|Event signup]] to [[firewall|Firewall settings]])
+  * Take a look on the [[feature_matrix|Feature matrix]] or the [[tutorials|Tutorials]]
+  * Releases are listed within the [[releases:releases|releases]] article
+
+APX uses an central [[event configuration]] file and offers plenty of [[commands:commands]] to work from, you can control multiple servers at once using a shared [[servers.json]] configuration file. Please read the [[best practises]] article when using APX.
+
+If you want to find out more how APX works, take a look into the [[architecture]] article. You can find a [[setup_screenshots]] article how to install APX to your server.
+
+If you have questions, see the [[what_is_apx_and_what_not|What is APX? And what not?]] and [[contact]] article. Check how you can [[support]] the project.
+
+APX will be licensed as an open source project. See [[licenses]] for more details.
+----
+APX is not related to S397.

@@ -1,0 +1,19 @@
+====== start======
+
+===== Purpose =====
+
+Starts the server. The config of the deployment will be used.
+
+===== Arguments =====
+
+None
+
+===== Examples =====
+
+<code>
+apx.py --server servername --cmd start
+</code>
+
+===== Remarks =====
+
+Introduced in version 1.0.0

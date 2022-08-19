@@ -1,0 +1,17 @@
+====== Architecture and contepts ======
+
+  * APX does not add any plugins to the server unless wanted. 
+  * APX automates all lifecycle acitivity
+  * APX does as much of work in the background without user interaction.
+  * For limitations see [[limitations]]
+
+
+===== Concept =====
+
+
+{{::apx_architecture.png?direct|}}
+
+
+----
+
+Steam, steamcmd, Windows Server and rFactor 2 are property of the corresponding companies and are only included for documentatory purposes.

@@ -1,0 +1,13 @@
+====== Releases ======
+
+APX follows a kind of rolling release scheme (see [[:supported_versions|supported versions]]). There are no backwarts compability changes. **The releases are numbered, the highest number is the latest release.**
+
+<WRAP center round tip 60%>
+I did not write these articles before R74. So the list will start with release 74.
+</WRAP>
+
+__**[[releases:79|
+THE LATEST VERSION IS RELEASE 79]]**__
+
+
+<nspages -exclude:releases>

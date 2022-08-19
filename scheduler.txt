@@ -1,0 +1,34 @@
+====== Scheduler ======
+
+A server can get scheduled events. The date and time of a scheduled action is described via a start and end time and a repeat flag.
+
+{{::cron.png?nolink|}}
+
+===== Examples for a schedules =====
+
+<WRAP center round important 60%>
+Keep schedules simple. Concurrent jobs can cause issues.
+If you are unsure, use multiple entries without repeations.
+</WRAP>
+
+
+|Start|End|Repeat|When it is executed?|
+|14:00:00|16:00:00|1|Not a valid combination|
+|14:00:00|16:00:00|15|Each 15 minutes, starting 14:00:00 until 16:00:00|
+|14:00:00|empty|15|Each 15 minutes, starting 14:00:00 until 23:59:00|
+|14:00:00|empty|1|Run an action at 14:00:00 each day|
+
+
+===== I need additional date and time settings! =====
+
+You can trigger the action execution by hand using following command. The disabled flag will be ignored then, aswell as the date and time values (replace path_to_your_wizard_installation and theidoftheschedule according to your installation). The id is the number in the address bar of your browser when you edit the schedule entry:
+
+<code>
+cmd /d "path_to_your_wizard_installation" /c "path_to_your_wizard_installation\manage.py" cron_run <theidoftheschedule>
+</code>
+
+=====Notes =====
+
+  * Cronjobs Obtain a lockfile called "cron.lock", if cronjobs keep getting stuck, the removal of the file might help
+  * Cronjobs are not running in parallel. A cronjob will wait 50 seconds before giving up. 
+  * Cronjobs are using the windows scheduler and will _always_ be executed unless they are disabled within APX.  This means cronjobs are even executed if APX is _not_ running

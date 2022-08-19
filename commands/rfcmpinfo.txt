@@ -1,0 +1,23 @@
+====== rfcmpinfo ======
+
+===== Purpose =====
+
+Extracts component name, version and other infos from a given *.rfcmp file. 
+
+===== Arguments =====
+
+The filename
+
+===== Examples =====
+
+<code>
+apx.py --server servername --cmd rfcmpinfo --args "pathtofile.rfcmp"
+</code>
+
+===== Remarks =====
+
+Introduced in version 1.0.0
+
+<WRAP center round alert 60%>
+The parameter --server servername must be added due to a command line parser issue but has no purpose.
+</WRAP>

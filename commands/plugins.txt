@@ -1,0 +1,38 @@
+====== plugins ======
+
+===== Purpose =====
+
+This command pushes given DLL files into the server plugin folder. The CustomPluginVariables.JSON file will be updated and overwritten according to the mod.json settings. This requires this command to be run AFTER the deploy command.
+
+
+
+===== Arguments =====
+
+The files to push.
+
+===== Examples =====
+
+<code>
+apx.py --server servername --cmd plugins --args <file.dll> <filen.dll>
+</code>
+
+
+If you have an different path to place the file onto:
+
+<WRAP center round important 60%>
+Note the quotes around the arguments, otherwise the shell will think it is a pipe.
+</WRAP>
+
+
+The target path is an relative folder within the rFactor 2 root folder. The target path will be created if not existing.
+
+<code>
+apx.py --server servername --cmd plugins --args "<file.dll>|<targetpath>" "<filen.dll>|<targetpath>"
+</code>
+
+===== Remarks =====
+
+
+<WRAP center round info 60%>
+The usage of the plugins depends on the plugin config to configure the plugins itself. Visit the https://wiki.apx.chmr.eu/doku.php?id=event_configuration article for more details.
+</WRAP>
